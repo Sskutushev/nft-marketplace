@@ -3,91 +3,191 @@
 
 .header {
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 88px;
   z-index: $z-header;
-  transition: background-color $transition-base;
-
-  @media (max-width: $tablet) {
-    height: 76px;
-  }
+  transition: background-color $transition-base, height $transition-base, top $transition-base;
+  display: flex;
+  justify-content: center;
 
   &.scrolled {
     background-color: $white-70;
     backdrop-filter: blur(10px);
-    border-radius: 0 0 20px 20px;
+  }
+
+  // Large Desktop (1240px and up)
+  @media (min-width: 1240px) {
+    height: 54px;
+    top: 45px;
+  }
+  
+  // Tablet (769px - 1239px)
+  @media (min-width: 769px) and (max-width: 1239px) {
+    height: 40px;
+    top: 32px;
+  }
+
+  // Mobile (up to 768px)
+  @media (max-width: 768px) {
+    height: 46px;
+    top: 20px;
+    padding: 0 30px;
   }
 }
 
 .container {
-  @include container;
-  @include flex-between;
+  display: flex;
+  align-items: center;
+  position: relative;
   height: 100%;
-  padding-top: 17px;
-  padding-bottom: 17px;
+  transition: width $transition-base;
+
+  // Large Desktop (1240px and up)
+  @media (min-width: 1240px) {
+    width: 1246px;
+  }
+  
+  // Tablet (769px - 1239px)
+  @media (min-width: 769px) and (max-width: 1239px) {
+    width: 890px;
+  }
+
+  // Mobile (up to 768px)
+  @media (max-width: 768px) {
+    width: 100%;
+    min-width: 315px;
+    justify-content: space-between;
+  }
+}
+
+.desktopHeader {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .logo {
-  @include flex-center;
-  gap: 7px;
+  display: flex;
+  align-items: center;
   cursor: pointer;
+  flex-shrink: 0; // Prevent logo from shrinking
 }
 
 .logoIcon {
-  width: 53px;
-  height: 53px;
+  transition: width $transition-base, height $transition-base;
+  
+  // Large Desktop (1240px and up)
+  @media (min-width: 1240px) {
+    width: 53px;
+    height: 53px;
+  }
 
-  @media (max-width: $mobile) {
+  // Tablet (769px - 1239px)
+  @media (min-width: 769px) and (max-width: 1239px) {
+    width: 38px;
+    height: 38px;
+  }
+  
+  // Mobile (up to 768px)
+  @media (max-width: 768px) {
     width: 46px;
     height: 46px;
   }
 }
 
 .logoText {
+  display: none;
   font-family: $font-primary;
-  font-size: 30px;
-  line-height: 39px;
+  font-weight: 600; /* SemiBold */
   color: $black-secondary;
+  transition: font-size $transition-base;
 
-  @media (max-width: $mobile) {
+  // Mobile (up to 768px)
+  @media (max-width: 768px) {
+    display: block;
     font-size: 22px;
-    line-height: 24px;
+    margin-left: 7px;
+    // Explicitly set font-family for mobile as per original request
+    font-family: $font-primary;
+  }
+}
+
+.mobileLogo .logoText {
+  @media (max-width: 768px) {
+    display: block;
+    font-size: 22px;
+    margin-left: 7px;
+    font-family: $font-primary;
   }
 }
 
 .nav {
   display: flex;
-  gap: 50px;
+  align-items: center;
+  transition: gap $transition-base, margin-left $transition-base;
 
-  @media (max-width: $tablet) {
+  // Large Desktop (1240px and up)
+  @media (min-width: 1240px) {
+    gap: 50px;
+    margin-left: 70px;
+  }
+
+  // Tablet (769px - 1239px)
+  @media (min-width: 769px) and (max-width: 1239px) {
+    gap: 32px;
+    margin-left: 40px;
+  }
+
+  // Mobile (up to 768px)
+  @media (max-width: 768px) {
     display: none;
   }
 }
 
 .navLink {
   font-family: $font-secondary;
-  font-size: 18px;
-  line-height: 26.74px;
-  color: #5f5f5f;
+  font-weight: 500; /* Medium */
+  color: #606060;
   text-decoration: none;
-  transition: color $transition-base;
+  transition: color $transition-base, font-size $transition-base;
   position: relative;
+  text-transform: uppercase;
+  white-space: nowrap; // Prevent links from wrapping
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: $black-primary;
+    transition: width $transition-base;
+  }
 
   &:hover {
     color: $black-primary;
-
     &::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
       width: 100%;
-      height: 2px;
-      background-color: $black-primary;
     }
   }
+
+  // Large Desktop (1240px and up)
+  @media (min-width: 1240px) {
+    font-size: 18px;
+  }
+
+  // Tablet (769px - 1239px)
+  @media (min-width: 769px) and (max-width: 1239px) {
+    font-size: 14px;
+  }
+}
+
+.positionSpacer {
+  flex-grow: 1;
 }
 
 .ctaButton {
@@ -95,38 +195,71 @@
   background-color: $black-secondary;
   color: $white;
   font-family: $font-secondary;
-  font-size: 16px;
-  line-height: 22px;
-  padding: 16px 24px;
-  border-radius: 16px;
-  transition: background-color $transition-base;
-
-  @media (max-width: $tablet) {
-    display: none;
-  }
+  font-weight: 600; /* SemiBold */
+  text-transform: uppercase;
+  transition: width $transition-base, height $transition-base, font-size $transition-base, border-radius $transition-base, background-color $transition-base;
+  flex-shrink: 0; // Prevent button from shrinking
 
   &:hover {
     background-color: $black-hover;
   }
+
+  // Large Desktop (1240px and up)
+  @media (min-width: 1240px) {
+    width: 200px;
+    height: 54px;
+    font-size: 16px;
+    border-radius: 16px;
+  }
+
+  // Tablet (769px - 1239px)
+  @media (min-width: 769px) and (max-width: 1239px) {
+    width: 140px;
+    height: 40px;
+    font-size: 11.5px;
+    border-radius: 11.5px;
+  }
+  
+  // Mobile (up to 768px)
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.mobileHeader {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    display: flex;
+  }
+}
+
+.mobileLogo {
+  display: flex;
+  align-items: center;
+  gap: 7px;
 }
 
 .burgerButton {
   @include button-reset;
   display: none;
-  flex-direction: column;
-  gap: 5.58px;
-  width: 40px;
-  height: 40px;
-  padding: 8.84px 4.25px;
-
-  @media (max-width: $tablet) {
-    display: flex;
+  
+  img {
+    transition: transform $transition-base;
   }
 
-  span {
-    width: 31.5px;
-    height: 2px;
-    background-color: #908f8f;
-    transition: all $transition-base;
+  &[aria-label="Close menu"] {
+    img {
+      transform: rotate(90deg);
+    }
+  }
+
+  @media (max-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

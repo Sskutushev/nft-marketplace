@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { gsap } from 'gsap';
+import Image from 'next/image';
 import styles from './BurgerMenu.module.scss';
 
 interface BurgerMenuProps {
@@ -38,18 +39,29 @@ const BurgerMenu = ({ isOpen, onClose }: BurgerMenuProps) => {
 
   return (
     <div className={styles.menu}>
-      <button className={styles.closeButton} onClick={onClose} aria-label="Close menu">
-        <svg width="24" height="24" viewBox="0 0 24 24">
-          <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2"/>
-        </svg>
-      </button>
+      <div className={styles.topContent}>
+        <nav className={styles.nav}>
+          <a href="#discover" onClick={onClose}>Discover</a>
+          <a href="#creators" onClick={onClose}>Creators</a>
+          <a href="#sell" onClick={onClose}>Sell</a>
+          <a href="#stats" onClick={onClose}>Stats</a>
+        </nav>
 
-      <nav className={styles.nav}>
-        <a href="#discover" onClick={onClose}>Discover</a>
-        <a href="#creators" onClick={onClose}>Creators</a>
-        <a href="#sell" onClick={onClose}>Sell</a>
-        <a href="#stats" onClick={onClose}>Stats</a>
-      </nav>
+        <div className={styles.socials}>
+          <a href="#" aria-label="Instagram">
+            <Image src="/images/Frame 16.svg" alt="Instagram" width={24} height={24} />
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <Image src="/images/Frame 17.svg" alt="LinkedIn" width={24} height={24} />
+          </a>
+          <a href="#" aria-label="Facebook">
+            <Image src="/images/Frame 18.svg" alt="Facebook" width={24} height={24} />
+          </a>
+          <a href="#" aria-label="Twitter">
+            <Image src="/images/Frame 19.svg" alt="Twitter" width={24} height={24} />
+          </a>
+        </div>
+      </div>
 
       <button className={styles.ctaButton}>
         Connect Wallet

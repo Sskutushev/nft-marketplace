@@ -3,25 +3,22 @@
 
 .menu {
   position: fixed;
-  top: 0;
+  top: 66px;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 66px);
   background-color: $white;
   z-index: $z-burger-menu;
   padding: 40px 30px;
   transform: translateY(-100%);
   opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.closeButton {
-  @include button-reset;
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  width: 40px;
-  height: 40px;
-  color: $black-primary;
+.topContent {
+  width: 100%;
 }
 
 .nav {
@@ -29,13 +26,22 @@
   flex-direction: column;
   gap: 30px;
   margin-top: 100px;
+  align-items: flex-start; /* Align items to the left */
 
   a {
     font-family: $font-secondary;
-    font-size: 24px;
-    color: $black-primary;
+    font-size: 40px; /* New font size */
+    font-weight: 500; /* Medium */
+    color: #606060; /* Updated font color */
     text-decoration: none;
+    text-transform: uppercase; /* Make text uppercase */
   }
+}
+
+.socials {
+  display: flex;
+  gap: 40px; /* Space between icons */
+  margin-top: 30px; /* Space below nav links */
 }
 
 .ctaButton {
@@ -43,9 +49,17 @@
   background-color: $black-secondary;
   color: $white;
   font-family: $font-secondary;
-  font-size: 16px;
-  padding: 16px 24px;
-  border-radius: 16px;
+  width: 316px;
+  max-width: 100%; /* Ensure it doesn't overflow on very small screens */
+  height: 60px;
+  font-size: 20px;
+  font-weight: 600; /* SemiBold */
+  border-radius: 15px;
   margin-top: 40px;
-  width: 100%;
+  align-self: center; /* Center the button horizontally */
+  text-transform: uppercase; /* Make button text uppercase */
+
+  @media (max-width: 375px) {
+    width: 100%; /* Make button full width on small screens */
+  }
 }
