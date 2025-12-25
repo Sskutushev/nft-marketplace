@@ -3,10 +3,10 @@
 
 .menu {
   position: fixed;
-  top: 66px;
+  top: 101px; /* Start below the new header height (76px height + 25px top) */
   left: 0;
   width: 100%;
-  height: calc(100vh - 66px);
+  height: calc(100vh - 101px); /* Adjust height to fill remaining space */
   background-color: $white;
   z-index: $z-burger-menu;
   padding: 40px 30px;

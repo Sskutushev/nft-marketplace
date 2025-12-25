@@ -1,125 +1,199 @@
 @import '@/styles/variables';
 @import '@/styles/mixins';
 
-.create {
-  padding: 100px 0;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  @media (max-width: $tablet) {
-    padding: 80px 0;
-  }
-
-  @media (max-width: $mobile) {
-    padding: 60px 0;
-  }
+.createSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column; // To center vertically with align-items
+  justify-content: center;
+  align-items: center; // Center vertically
+  position: relative;
+  padding-bottom: 100px; // Default
+  // min-height will be set per breakpoint based on content height + padding.
 }
 
-.container {
-  @include container;
-}
-
-.banner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+.createContainer {
+  top: -50px;
+  display: flex;
   align-items: center;
-  background-color: $gray-bg;
-  border-radius: 24px;
-  padding: 60px;
-
-  @media (max-width: $tablet) {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 40px;
-  }
-
-  @media (max-width: $mobile) {
-    padding: 30px;
-  }
+  background-color: #141416;
+  border-radius: 30px;
+  position: relative;
+  margin: 0 auto; // Center horizontally within createSection
 }
 
-.content {
+.leftBlock {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-}
-
-.subtitle {
-  font-family: $font-secondary;
-  font-size: 16px;
-  color: #5f5f5f;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  color: $white;
 }
 
 .title {
   font-family: $font-primary;
-  font-size: 48px;
-  font-weight: 700;
-  color: $black-secondary;
-  line-height: 1.2;
-
-  @media (max-width: $tablet) {
-    font-size: 36px;
-  }
-
-  @media (max-width: $mobile) {
-    font-size: 32px;
-  }
+  font-weight: 600; // Semibold
+  color: $white;
 }
 
-.actions {
+.subtitle {
+  font-family: $font-primary;
+  font-weight: 500; // Medium
+  color: #D4D4D4;
+}
+
+.buttonGroup {
   display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
+  gap: 24px;
 }
 
-.btnPrimary,
-.btnSecondary {
+.exploreButton, .sellButton {
   @include button-reset;
-  font-family: $font-cta;
-  font-size: 16px;
-  font-weight: 600;
-  padding: 16px 32px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600; // Semibold
+  font-size: 21.36px;
+  width: 180px;
+  height: 68px;
   border-radius: 12px;
+  // text-transform: uppercase; // Removed as per user request
   transition: all $transition-base;
 }
 
-.btnPrimary {
-  background-color: $black-secondary;
-  color: $white;
-
-  &:hover {
-    background-color: $black-hover;
-    transform: translateY(-2px);
-  }
-}
-
-.btnSecondary {
+.exploreButton {
   background-color: $white;
   color: $black-secondary;
-  border: 2px solid $black-secondary;
-
   &:hover {
     background-color: $gray-button;
   }
 }
 
-.imageWrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.sellButton {
+  background-color: transparent;
+  color: $white;
+  border: 1px solid $white;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.imageBlock {
+  margin-top: 50px;
+  position: relative; // For positioning the image inside
 }
 
 .createImage {
-  max-width: 100%;
-  height: auto;
-  border-radius: 16px;
+  border-radius: 15.79px;
+  img {
+    border-radius: inherit;
+  }
+}
+
+
+// ===================================
+// DESKTOP STYLES (1241px and up)
+// ===================================
+@media (min-width: 1241px) {
+  .createSection {
+    min-height: 539px; // (228px padding + 311px container height)
+    padding-top: 228px;
+  }
+
+  .createContainer {
+    width: 1246px;
+    height: 311px;
+    padding: 0 80px;
+    gap: 80px;
+  }
+  
+  .leftBlock {
+    width: 476px;
+    height: 215px;
+    gap: 16px; // Approx
+  }
+  .title { font-size: 45px; }
+  .subtitle { font-size: 20px; }
+  .buttonGroup { margin-top: 55px; }
+  .imageBlock {
+    width: 369px;
+    height: 249px;
+    position: absolute;
+    right: 50px;
+    top: -20px;
+    z-index: 1;
+  }
+  .createImage {
+    width: 369px;
+    height: 249px;
+  }
+}
+
+
+// ===================================
+// TABLET STYLES (769px - 1240px)
+// ===================================
+@media (min-width: 769px) and (max-width: 1240px) {
+  .createSection {
+    min-height: 333px; // (100px padding + 233px container height)
+    padding-top: 100px; // Approx. from hero section
+  }
+
+  .createContainer {
+    width: 890px;
+    height: 233px;
+    padding: 0 40px;
+    gap: 40px;
+  }
+  .leftBlock {
+    width: 350px; // Approx
+    gap: 12px;
+  }
+  .title { font-size: 32px; }
+  .subtitle { font-size: 16px; }
+  .buttonGroup { margin-top: 30px; }
+  .exploreButton, .sellButton { font-size: 16px; width: 150px; height: 50px; }
+  
+  .imageBlock {
+    width: 250px; // Approx
+    height: 170px; // Approx
+    position: absolute;
+    right: 30px;
+    top: -15px;
+  }
+}
+
+
+// ===================================
+// MOBILE STYLES (up to 768px)
+// ===================================
+@media (max-width: 768px) {
+  .createSection {
+    min-height: 401px; // (80px padding + 321px container height)
+    padding-top: 80px; // Approx. from hero section
+  }
+  .createContainer {
+    width: 315px;
+    height: 211px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+    text-align: center;
+  }
+  .leftBlock {
+    width: 100%;
+    gap: 10px;
+    align-items: center;
+  }
+  .title { margin-top: 120px; font-size: 24px; }
+  .subtitle { font-size: 10px; }
+  .buttonGroup { margin-top: 12px; flex-direction: row; gap: 10px;}
+  .exploreButton, .sellButton { font-size: 10.58px; width: 91px; height: 34px; }
+
+  // Mobile image moved outside
+  .imageBlock {
+    width: 251px;
+    height: 130px;
+    top: -15%; // Position relative to createSection's bottom
+    left: 50%;
+    transform: translateX(-55%);
+    z-index: 1;
+  }
 }

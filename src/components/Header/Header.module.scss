@@ -6,31 +6,45 @@
   width: 100%;
   z-index: $z-header;
   transition: background-color $transition-base, height $transition-base, top $transition-base;
+  height: 54px; // Base height, will be overridden for desktop
+  top: 25px; // New default top for desktop
   display: flex;
   justify-content: center;
 
   &.scrolled {
     background-color: $white-70;
     backdrop-filter: blur(10px);
+    border-radius: 0 0 10px 10px;
   }
 
-  // Large Desktop (1240px and up)
-  @media (min-width: 1240px) {
-    height: 54px;
-    top: 45px;
+  // 1920px
+  @media (min-width: 1920px) {
+    height: 88px;
   }
   
-  // Tablet (769px - 1239px)
-  @media (min-width: 769px) and (max-width: 1239px) {
+  // 1440px to 1919px
+  @media (min-width: 1440px) and (max-width: 1919px) {
+    height: 88px;
+  }
+
+  // 1025px to 1439px
+  @media (min-width: 1025px) and (max-width: 1439px) {
     height: 40px;
     top: 32px;
   }
 
-  // Mobile (up to 768px)
+  // 768px to 1024px
+  @media (min-width: 768px) and (max-width: 1024px) {
+    height: 40px;
+    top: 32px;
+  }
+
+  // below 768px (mobile)
   @media (max-width: 768px) {
-    height: 46px;
-    top: 20px;
+    height: 76px;
+    top: 25px; // Updated mobile top
     padding: 0 30px;
+    border-bottom: 1px solid #201F1F;
   }
 }
 
