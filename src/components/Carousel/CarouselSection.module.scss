@@ -1,0 +1,101 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.carousel {
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: $tablet) {
+    padding: 80px 0;
+  }
+
+  @media (max-width: $mobile) {
+    padding: 60px 0;
+  }
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $gray-carousel;
+  z-index: -1;
+}
+
+.title {
+  font-family: $font-primary;
+  font-size: 48px;
+  font-weight: 700;
+  color: $gray-title;
+  text-align: center;
+  margin-bottom: 60px;
+
+  @media (max-width: $tablet) {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+
+  @media (max-width: $mobile) {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+}
+
+.swiperContainer {
+  padding: 0 97px;
+
+  @media (max-width: $tablet) {
+    padding: 0 32px;
+  }
+
+  @media (max-width: $mobile) {
+    padding: 0 30px;
+  }
+}
+
+.navigation {
+  @include flex-center;
+  gap: 24px;
+  margin-top: 40px;
+
+  button {
+    @include button-reset;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid $black-secondary;
+    color: $black-secondary;
+    transition: all $transition-base;
+
+    &:hover {
+      background-color: $black-secondary;
+      color: $white;
+    }
+  }
+}
+
+.divider {
+  width: 1px;
+  height: 24px;
+  background-color: $gray-element;
+}
+
+.loader,
+.error {
+  @include flex-center;
+  min-height: 400px;
+  font-family: $font-secondary;
+  font-size: 18px;
+  color: $black-secondary;
+}

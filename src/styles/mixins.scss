@@ -1,0 +1,41 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin container {
+  max-width: 1246px;
+  margin: 0 auto;
+  padding: 0 97px;
+
+  @media (max-width: $tablet) {
+    padding: 0 32px;
+  }
+
+  @media (max-width: $mobile) {
+    padding: 0 30px;
+  }
+}
+
+@mixin button-reset {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+@mixin hover-scale {
+  transition: transform $transition-base;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}

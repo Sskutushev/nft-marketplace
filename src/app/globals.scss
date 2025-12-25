@@ -1,0 +1,33 @@
+@import '../styles/variables';
+@import '../styles/mixins';
+@import '../styles/breakpoints';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-primary;
+}
+
+body {
+  color: $black-secondary;
+  background-color: $white;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul, ol {
+  list-style: none;
+}

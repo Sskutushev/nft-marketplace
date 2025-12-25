@@ -1,0 +1,125 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.create {
+  padding: 100px 0;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: $tablet) {
+    padding: 80px 0;
+  }
+
+  @media (max-width: $mobile) {
+    padding: 60px 0;
+  }
+}
+
+.container {
+  @include container;
+}
+
+.banner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  background-color: $gray-bg;
+  border-radius: 24px;
+  padding: 60px;
+
+  @media (max-width: $tablet) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 40px;
+  }
+
+  @media (max-width: $mobile) {
+    padding: 30px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.subtitle {
+  font-family: $font-secondary;
+  font-size: 16px;
+  color: #5f5f5f;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.title {
+  font-family: $font-primary;
+  font-size: 48px;
+  font-weight: 700;
+  color: $black-secondary;
+  line-height: 1.2;
+
+  @media (max-width: $tablet) {
+    font-size: 36px;
+  }
+
+  @media (max-width: $mobile) {
+    font-size: 32px;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btnPrimary,
+.btnSecondary {
+  @include button-reset;
+  font-family: $font-cta;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 16px 32px;
+  border-radius: 12px;
+  transition: all $transition-base;
+}
+
+.btnPrimary {
+  background-color: $black-secondary;
+  color: $white;
+
+  &:hover {
+    background-color: $black-hover;
+    transform: translateY(-2px);
+  }
+}
+
+.btnSecondary {
+  background-color: $white;
+  color: $black-secondary;
+  border: 2px solid $black-secondary;
+
+  &:hover {
+    background-color: $gray-button;
+  }
+}
+
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.createImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+}

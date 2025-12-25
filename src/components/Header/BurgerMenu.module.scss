@@ -1,0 +1,51 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: $white;
+  z-index: $z-burger-menu;
+  padding: 40px 30px;
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.closeButton {
+  @include button-reset;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 40px;
+  height: 40px;
+  color: $black-primary;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 100px;
+
+  a {
+    font-family: $font-secondary;
+    font-size: 24px;
+    color: $black-primary;
+    text-decoration: none;
+  }
+}
+
+.ctaButton {
+  @include button-reset;
+  background-color: $black-secondary;
+  color: $white;
+  font-family: $font-secondary;
+  font-size: 16px;
+  padding: 16px 24px;
+  border-radius: 16px;
+  margin-top: 40px;
+  width: 100%;
+}
