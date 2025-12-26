@@ -4,7 +4,7 @@
 .carousel {
   position: relative;
   padding: 100px 0;
-  overflow: hidden;
+  overflow: visible; // Изменено с hidden на visible
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
