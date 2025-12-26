@@ -1,13 +1,30 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
-import useIntersectionObserver from '@/hooks/useIntersectionObserver'; // Assuming this hook is still needed for animation
+import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 import styles from './CreateSection.module.scss';
 
 const CreateSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.1 }); // Keep animation logic if needed
+  const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.1 });
+  const [currentImageSrc, setCurrentImageSrc] = useState('/images/Group 427320345.svg'); // Default to desktop image
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 885) {
+        setCurrentImageSrc('/images/Group 427320377.svg');
+      } else {
+        setCurrentImageSrc('/images/Group 427320345.svg');
+      }
+    };
+
+    // Set initial image src
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []); // Empty dependency array means this effect runs once on mount
 
   return (
     <section ref={sectionRef} className={`${styles.createSection} ${isVisible ? styles.visible : ''}`}>
@@ -22,20 +39,18 @@ const CreateSection = () => {
           </div>
         </div>
 
-        {/* This image is part of the main container on desktop/tablet, but separates on mobile */}
         <div className={styles.imageBlock}>
           <Image
-            src="/images/Group 427320377.svg"
+            src={currentImageSrc}
             alt="Create NFT"
-            width={369}
-            height={249}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            width={369} // Default desktop width, will be overridden by CSS
+            height={249} // Default desktop height, will be overridden by CSS
+            sizes="(max-width: 885px) 100vw, 50vw" // Adjust sizes based on new breakpoint
             style={{ objectFit: 'contain' }}
             className={styles.createImage}
           />
         </div>
       </div>
-      {/* On mobile, this image might be separate, but currently it's inside the .createContainer for desktop/tablet layout */}
     </section>
   );
 };

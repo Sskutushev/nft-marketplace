@@ -7,50 +7,156 @@
   color: $white;
   padding: 60px 0 40px;
 
-  @media (max-width: 1240px) { // Tablet and Mobile
-    padding: 50px 0 30px;
+  @media (min-width: 768px) and (max-width: 1240px) {
+    padding: 40px 0 30px;
   }
 
-  @media (max-width: 767px) { // Mobile specific
+  @media (max-width: 767px) {
     padding: 40px 0 20px;
   }
 }
 
-.container {
-  @include container; // Provides default max-width: 1246px, margin: 0 auto, and padding for smaller screens
+.desktopTabletFooter {
+  display: block;
 
-  @media (min-width: 1241px) { // Desktop+
+  @media (max-width: 885px) {
+    display: none;
+  }
+}
+
+.mobileFooter {
+  display: none;
+
+  @media (max-width: 885px) {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 40px 0 20px;
+  }
+}
+
+.mobileContainer {
+  max-width: 315px;
+  min-height: 322px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.mobileUpper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 46px;
+  margin-bottom: 45px;
+  position: relative;
+}
+
+.mobileLogoBlock {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  img {
+    width: 46px;
+    height: 46px;
+  }
+  span {
+    font-family: $font-primary;
+    font-weight: 600;
+    font-size: 22px;
+    color: $white;
+  }
+}
+
+.mobileSocials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 85px;
+  img {
+    width: 17px;
+    height: 17px;
+    filter: brightness(0) invert(0.725);
+    transition: filter $transition-base;
+  }
+  a:hover img {
+    filter: brightness(0) invert(1);
+  }
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  align-items: flex-start;
+
+  a {
+    font-family: $font-secondary;
+    font-weight: 500;
+    font-size: 14px;
+    color: #B9B9B9;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color $transition-base;
+
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
+.mobileDivider {
+  width: 100%;
+  height: 1px;
+  background-color: #818181;
+  margin-top: 48px;
+  margin-bottom: 25px;
+}
+
+.mobileCopyright {
+  text-align: center;
+  font-family: $font-secondary;
+  font-weight: 500;
+  font-size: 14px;
+  color: #999999;
+}
+
+.container {
+  @include container;
+
+  @media (min-width: 1241px) {
     max-width: 1246px;
     margin: 0 auto;
     padding: 0 97px;
   }
 
-  @media (max-width: 767px) { // Mobile specific
-    max-width: 327px; // Specific width for mobile
-    padding: 0; // Remove horizontal padding
-    margin: 0 auto; // Ensure it's centered
+  @media (min-width: 768px) and (max-width: 1240px) {
+    max-width: 890px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  @media (max-width: 767px) {
+    // These styles will be superseded by .mobileFooter on screen sizes <= 885px
+    // But they will still apply from 768px to 885px, which is not what we want.
+    // So, this block should ideally be for min-width: 768px and max-width: 885px
+    // Or just removed, as the new mobileFooter takes over.
+    // For now, I will keep it as it's part of the desktopTabletFooter,
+    // which gets hidden at max-width: 885px.
   }
 }
 
 .upper {
-  @include flex-between; // Default desktop: logo left, nav right
+  @include flex-between;
   margin-bottom: 40px;
-  position: relative; // Retain for potential future use or if any element uses absolute positioning on smaller screens
+  position: relative;
 
-  @media (max-width: 1240px) { // Tablet and Mobile
-    flex-direction: column; // Column for logo and nav sections
-    align-items: center; // Center items within the column
-    gap: 30px;
-    margin-bottom: 20px;
-  }
-
-  @media (max-width: 767px) { // Mobile specific
-    display: flex; // Use flexbox for inner alignment
-    align-items: center; // Vertically center items
-    height: 46px; // Specific height for mobile upper block
-    margin-bottom: 32px; // 32px below the upper block
-    justify-content: flex-start; // Align items to the start
-    width: 100%; // Take full width of its container (327px)
+  @media (min-width: 768px) and (max-width: 1240px) {
+    margin-bottom: 30px;
   }
 }
 
@@ -66,21 +172,12 @@
     height: 65px;
   }
 
-  @media (max-width: 767px) { // Mobile specific
-    gap: 0; // Reset gap as inner spacing is now explicit
-    display: flex;
-    align-items: center; // Vertically align logo and title
+  @media (min-width: 768px) and (max-width: 1240px) {
     img {
-      width: 46px; // Specific logo size for mobile
-      height: 46px;
+      width: 50px;
+      height: 50px;
     }
-    span {
-      margin-left: 7px; // 7px from logo to title
-      font-family: $font-primary;
-      font-weight: 600; // Semibold
-      font-size: 22px; // Specific font size for mobile title
-      line-height: 1; // Adjust line height if necessary
-    }
+    font-size: 28px;
   }
 }
 
@@ -88,9 +185,8 @@
   display: flex;
   gap: 40px;
 
-  @media (max-width: 1240px) { // Tablet and Mobile
-    flex-direction: column;
-    gap: 20px;
+  @media (min-width: 768px) and (max-width: 1240px) {
+    gap: 30px;
   }
 
   a {
@@ -104,7 +200,7 @@
       opacity: 0.7;
     }
 
-    @media (min-width: 1241px) { // Desktop+
+    @media (min-width: 1241px) {
       font-size: 17.83px;
       color: #B9B9B9;
       &:hover {
@@ -113,18 +209,8 @@
       }
     }
 
-    @media (max-width: 1240px) { // Tablet and Mobile
-      font-size: 17.83px; // Keep same font size as desktop for these links
-      color: #B9B9B9; // Keep same color
-      text-transform: uppercase; // Apply uppercase to tablet as well, as per earlier mobile instruction
-      text-align: center; // Center text for tablet
-      &:hover {
-        color: $white;
-      }
-    }
-
-    @media (max-width: 767px) { // Mobile specific
-      font-size: 14px; // Specific font size for mobile
+    @media (min-width: 768px) and (max-width: 1240px) {
+      font-size: 15px;
       color: #B9B9B9;
       text-transform: uppercase;
       &:hover {
@@ -132,50 +218,26 @@
       }
     }
   }
-
-  @media (max-width: 767px) { // Mobile specific
-    flex-direction: column;
-    align-items: flex-start; // Align links to the left
-    gap: 15px; // Default gap for nav links, adjust if needed
-    margin-top: 0; // Reset margin top as per new spacing
-    width: auto; // Let content define width
-    padding-left: 0; // No padding for indent, use margin for spacing
-    margin-left: 0; // Ensure no default margin
-    margin-bottom: 45px; // 45px below the last button
-  }
 }
 
 .divider {
   width: 100%;
   height: 1px;
   background-color: rgba(255, 255, 255, 0.2);
-  margin-top: -15px; // Keeping this, as it seems to be part of the desired layout
-  margin-bottom: 45px; // Removed !important
+  margin-top: -15px;
+  margin-bottom: 45px;
 
-  @media (max-width: 1240px) { // Tablet and Mobile
-    margin-bottom: 15px;
-    margin-top: 30px;
-  }
-
-  @media (max-width: 767px) { // Mobile specific
-    margin-top: 0; // Reset margin top
-    margin-bottom: 27px; // 27px below the divider
+  @media (min-width: 768px) and (max-width: 1240px) {
+    margin-bottom: 10px;
+    margin-top: 20px;
   }
 }
 
 .lower {
   @include flex-between;
 
-  @media (max-width: 1240px) { // Tablet and Mobile
-    flex-direction: column;
+  @media (min-width: 768px) and (max-width: 1240px) {
     gap: 20px;
-    text-align: center;
-  }
-
-  @media (max-width: 767px) { // Mobile specific
-    flex-direction: column;
-    align-items: center; // Centered copyright on mobile
-    gap: 0; // Reset gap
   }
 }
 
@@ -184,38 +246,29 @@
   font-size: 14px;
   color: rgba(255, 255, 255, 0.7);
 
-  @media (min-width: 1241px) { // Desktop+
+  @media (min-width: 1241px) {
     font-size: 14px;
     color: rgba(255, 255, 255, 0.7);
   }
 
-  @media (max-width: 1240px) { // Tablet and Mobile
-    font-size: 14px;
+  @media (min-width: 768px) and (max-width: 1240px) {
+    font-size: 12px;
     color: rgba(255, 255, 255, 0.7);
-    text-align: center; // Centered for tablet
-  }
-
-  @media (max-width: 767px) { // Mobile specific
-    font-size: 14px;
-    color: #999999;
-    text-align: center; // Centered for mobile
-    width: 100%; // Ensure it takes full width
-    padding-left: 0; // Remove padding-left
   }
 }
 
 .copyrightFull {
-  display: none; // Hidden by default
+  display: none;
 
-  @media (max-width: 767px) { // Show only on mobile
+  @media (max-width: 767px) {
     display: block;
   }
 }
 
 .copyrightShort {
-  display: block; // Show by default (desktop/tablet)
+  display: block;
 
-  @media (max-width: 767px) { // Hide on mobile
+  @media (max-width: 767px) {
     display: none;
   }
 }
@@ -223,15 +276,10 @@
 .socials {
   display: flex;
   gap: 16px;
-
-  @media (max-width: 767px) { // Mobile specific
-    margin-left: auto; // Pushes socials to the right
-    gap: 10px; // 10px between social icons
-  }
 }
 
 .socialIcon {
-  @media (min-width: 1241px) { // Desktop+
+  @media (min-width: 1241px) {
     img {
       width: 24px;
       height: 24px;
@@ -243,23 +291,10 @@
     }
   }
 
-  @media (max-width: 1240px) { // Tablet and Mobile
+  @media (min-width: 768px) and (max-width: 1240px) {
     img {
-      width: 24px;
-      height: 24px;
-      transition: filter $transition-base;
-    }
-
-    &:hover img {
-      filter: brightness(0) invert(1);
-    }
-  }
-
-  @media (max-width: 767px) { // Mobile specific
-    img {
-      width: 17px; // Specific icon size for mobile
-      height: 17px;
-      transition: filter $transition-base;
+      width: 20px;
+      height: 20px;
     }
 
     &:hover img {

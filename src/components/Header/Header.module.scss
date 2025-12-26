@@ -6,10 +6,8 @@
   width: 100%;
   z-index: $z-header;
   transition: background-color $transition-base, height $transition-base, top $transition-base;
-  height: 54px; // Base height, will be overridden for desktop
-  top: 25px; // New default top for desktop
-  display: flex;
-  justify-content: center;
+  height: 54px;
+  top: 25px;
 
   &.scrolled {
     background-color: $white-70;
@@ -17,39 +15,33 @@
     border-radius: 0 0 10px 10px;
   }
 
-  // 1920px
   @media (min-width: 1920px) {
     height: 88px;
   }
   
-  // 1440px to 1919px
   @media (min-width: 1440px) and (max-width: 1919px) {
     height: 88px;
   }
 
-  // 1025px to 1439px
   @media (min-width: 1025px) and (max-width: 1439px) {
-    height: 88px; // Changed from 40px
-    top: 25px; // Changed from 32px
+    height: 88px;
+    top: 25px;
   }
 
-  // 768px to 1024px
   @media (min-width: 768px) and (max-width: 1024px) {
-    height: 88px; // Changed from 40px
-    top: 25px; // Changed from 32px
+    height: 88px;
+    top: 25px;
   }
 
-  // below 768px (mobile)
   @media (max-width: 768px) {
-    height: 88px; // Changed from 76px
-    top: 25px; // Already 25px
+    height: 88px;
+    top: 25px;
     padding: 0 30px;
     border-bottom: 1px solid #201F1F;
   }
 
-  // below 375px (smaller mobile)
   @media (max-width: 375px) {
-    padding: 0 0px; // Remove horizontal padding for smaller screens, container will handle it
+    padding: 0 0px;
   }
 }
 
@@ -60,27 +52,23 @@
   height: 100%;
   transition: width $transition-base;
 
-  // Large Desktop (1240px and up)
   @media (min-width: 1240px) {
     width: 1246px;
   }
   
-  // Tablet (769px - 1239px)
   @media (min-width: 769px) and (max-width: 1239px) {
     width: 890px;
   }
 
-  // Mobile (up to 768px)
   @media (max-width: 768px) {
-    width: 100%; // Take full width
+    width: 100%;
     justify-content: space-between;
   }
 
-  // Smaller mobile (up to 375px)
   @media (max-width: 375px) {
-    max-width: 315px; // Fixed width container
-    margin: 0 auto; // Center the container
-    min-width: unset; // Remove previous min-width override
+    max-width: 315px;
+    margin: 0 auto;
+    min-width: unset;
   }
 }
 
@@ -98,25 +86,22 @@
   display: flex;
   align-items: center;
   cursor: pointer;
-  flex-shrink: 0; // Prevent logo from shrinking
+  flex-shrink: 0;
 }
 
 .logoIcon {
   transition: width $transition-base, height $transition-base;
   
-  // Large Desktop (1240px and up)
   @media (min-width: 1240px) {
     width: 53px;
     height: 53px;
   }
 
-  // Tablet (769px - 1239px)
   @media (min-width: 769px) and (max-width: 1239px) {
     width: 38px;
     height: 38px;
   }
   
-  // Mobile (up to 768px)
   @media (max-width: 768px) {
     width: 46px;
     height: 46px;
@@ -126,16 +111,14 @@
 .logoText {
   display: none;
   font-family: $font-primary;
-  font-weight: 600; /* SemiBold */
+  font-weight: 600;
   color: $black-secondary;
   transition: font-size $transition-base;
 
-  // Mobile (up to 768px)
   @media (max-width: 768px) {
     display: block;
     font-size: 22px;
     margin-left: 7px;
-    // Explicitly set font-family for mobile as per original request
     font-family: $font-primary;
   }
 }
@@ -154,19 +137,16 @@
   align-items: center;
   transition: gap $transition-base, margin-left $transition-base;
 
-  // Large Desktop (1240px and up)
   @media (min-width: 1240px) {
     gap: 50px;
     margin-left: 70px;
   }
 
-  // Tablet (769px - 1239px)
   @media (min-width: 769px) and (max-width: 1239px) {
     gap: 32px;
     margin-left: 40px;
   }
 
-  // Mobile (up to 768px)
   @media (max-width: 768px) {
     display: none;
   }
@@ -174,13 +154,13 @@
 
 .navLink {
   font-family: $font-secondary;
-  font-weight: 500; /* Medium */
+  font-weight: 500;
   color: #606060;
   text-decoration: none;
   transition: color $transition-base, font-size $transition-base;
   position: relative;
   text-transform: uppercase;
-  white-space: nowrap; // Prevent links from wrapping
+  white-space: nowrap;
 
   &::after {
     content: '';
@@ -200,12 +180,10 @@
     }
   }
 
-  // Large Desktop (1240px and up)
   @media (min-width: 1240px) {
     font-size: 18px;
   }
 
-  // Tablet (769px - 1239px)
   @media (min-width: 769px) and (max-width: 1239px) {
     font-size: 14px;
   }
@@ -220,16 +198,15 @@
   background-color: $black-secondary;
   color: $white;
   font-family: $font-secondary;
-  font-weight: 600; /* SemiBold */
+  font-weight: 600;
   text-transform: uppercase;
   transition: width $transition-base, height $transition-base, font-size $transition-base, border-radius $transition-base, background-color $transition-base;
-  flex-shrink: 0; // Prevent button from shrinking
+  flex-shrink: 0;
 
   &:hover {
     background-color: $black-hover;
   }
 
-  // Large Desktop (1240px and up)
   @media (min-width: 1240px) {
     width: 200px;
     height: 54px;
@@ -237,7 +214,6 @@
     border-radius: 16px;
   }
 
-  // Tablet (769px - 1239px)
   @media (min-width: 769px) and (max-width: 1239px) {
     width: 140px;
     height: 40px;
@@ -245,7 +221,6 @@
     border-radius: 11.5px;
   }
   
-  // Mobile (up to 768px)
   @media (max-width: 768px) {
     display: none;
   }

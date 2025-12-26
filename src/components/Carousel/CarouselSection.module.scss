@@ -63,8 +63,8 @@
     padding: 0 30px;
   }
 
-  @media (max-width: 320px) { // Specific for 320px width
-    padding: 0 15px; // Reduce padding to give more space to the card
+  @media (max-width: 320px) {
+    padding: 0 15px;
   }
 }
 
@@ -73,13 +73,13 @@
   gap: 24px;
   margin-top: 40px;
 
-  @media (max-width: $mobile) { // Smallest screens
-    gap: 16px; // Reduce gap on mobile
-    margin-top: 30px; // Adjust margin
+  @media (max-width: $mobile) {
+    gap: 16px;
+    margin-top: 30px;
   }
 
-  @media (max-width: 320px) { // Specific for 320px width
-    margin-top: 20px; // Adjust margin for very small screens
+  @media (max-width: 320px) {
+    margin-top: 20px;
   }
 
   button {
@@ -97,12 +97,12 @@
     }
 
     @media (max-width: $mobile) {
-      width: 40px; // Smaller buttons on mobile
+      width: 40px;
       height: 40px;
     }
 
-    @media (max-width: 320px) { // Specific for 320px width
-      width: 36px; // Even smaller buttons
+    @media (max-width: 320px) {
+      width: 36px;
       height: 36px;
     }
   }
@@ -114,11 +114,11 @@
   background-color: $gray-element;
 
   @media (max-width: $mobile) {
-    height: 20px; // Slightly smaller divider
+    height: 20px;
   }
 
   @media (max-width: 320px) {
-    height: 18px; // Even smaller divider
+    height: 18px;
   }
 }
 
