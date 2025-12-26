@@ -50,34 +50,40 @@ const CarouselSection = () => {
             prevEl: '.swiper-button-prev-custom',
           }}
           breakpoints={{
-            320: { // Mobile adaptation for 320px
-              slidesPerView: 'auto',
+            320: {
+              slidesPerView: 1.8,
               centeredSlides: true,
-              spaceBetween: 16, // Updated to 16px
+              spaceBetween: 16,
             },
-            375: { // Mobile adaptation for 375px
-              slidesPerView: 'auto',
+            375: {
+              slidesPerView: 1.8,
               centeredSlides: true,
-              spaceBetween: 16, // Updated to 16px
+              spaceBetween: 16,
             },
-            768: { // Tablet adaptation (2.5 slides visible)
+            425: {
               slidesPerView: 2.5,
-              spaceBetween: 16, // Updated to 16px
+              centeredSlides: true,
+              spaceBetween: 16,
+            },
+
+            768: {
+              slidesPerView: 4,
+              spaceBetween: 16,
               centeredSlides: true,
             },
-            1024: { // Tablet adaptation (3.5 slides visible)
-              slidesPerView: 3.5,
-              spaceBetween: 16, // Updated to 16px
+            1024: {
+              slidesPerView: 5,
+              spaceBetween: 16,
               centeredSlides: true,
             },
-            1440: { // Desktop adaptation (3.5 slides visible)
-              slidesPerView: 3.5,
-              spaceBetween: 20, // Updated to 20px
+            1440: {
+              slidesPerView: 4.5,
+              spaceBetween: 20,
               centeredSlides: true,
             },
-            1920: { // Large Desktop adaptation (5.5 slides visible)
-              slidesPerView: 5.5,
-              spaceBetween: 20, // Updated to 20px
+            1920: {
+              slidesPerView: 6.5,
+              spaceBetween: 100,
               centeredSlides: true,
             },
           }}
