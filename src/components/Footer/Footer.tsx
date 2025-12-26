@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import styles from './Footer.module.scss';
 
 const Footer = () => {
@@ -6,10 +7,7 @@ const Footer = () => {
       <div className={styles.container}>
         <div className={styles.upper}>
           <div className={styles.logo}>
-            <svg width="65" height="65" viewBox="0 0 65 65">
-              {/* Logo SVG from Figma - using placeholder for now */}
-              <circle cx="32.5" cy="32.5" r="30" fill="#141416"/>
-            </svg>
+            <Image src="/images/Wave.svg" alt="DiveSea Logo" width={65} height={65} />
             <span>DiveSea</span>
           </div>
 
@@ -24,13 +22,22 @@ const Footer = () => {
         <div className={styles.divider}></div>
 
         <div className={styles.lower}>
-          <p className={styles.copyright}>© 2023 DiveSea All Rights Reserved.</p>
+          <p className={`${styles.copyright} ${styles.copyrightFull}`}>© 2023 DiveSea All Rights Reserved.</p>
+          <p className={`${styles.copyright} ${styles.copyrightShort}`}>© 2023</p>
 
           <div className={styles.socials}>
-            {/* Add social media icons - using placeholders for now */}
-            <div className={styles.socialIcon}></div>
-            <div className={styles.socialIcon}></div>
-            <div className={styles.socialIcon}></div>
+            <a href="#" className={styles.socialIcon}>
+              <Image src="/images/Frame 16.svg" alt="Instagram" width={24} height={24} />
+            </a>
+            <a href="#" className={styles.socialIcon}>
+              <Image src="/images/Frame 17.svg" alt="LinkedIn" width={24} height={24} />
+            </a>
+            <a href="#" className={styles.socialIcon}>
+              <Image src="/images/Frame 18.svg" alt="Facebook" width={24} height={24} />
+            </a>
+            <a href="#" className={styles.socialIcon}>
+              <Image src="/images/Frame 19.svg" alt="Twitter" width={24} height={24} />
+            </a>
           </div>
         </div>
       </div>

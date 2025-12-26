@@ -1,28 +1,43 @@
 @import '@/styles/variables';
 @import '@/styles/mixins';
+@import '@/styles/breakpoints';
 
 .footer {
   background-color: $black-secondary;
   color: $white;
   padding: 60px 0 40px;
 
-  @media (max-width: $tablet) {
+  @media (min-width: 1241px) { // Desktop+
+    padding: 60px 0 40px;
+  }
+
+  @media (max-width: 1240px) { // Tablet and below
     padding: 50px 0 30px;
   }
 }
 
 .container {
-  @include container;
+  @include container; // Provides default max-width: 1246px, margin: 0 auto, and padding for tablet/mobile
+
+  @media (min-width: 1241px) { // Desktop+
+    max-width: 1246px;
+    margin: 0 auto;
+    padding: 0 97px;
+  }
+
+  // Tablet and below will use default container from mixin, which already has responsive padding
 }
 
 .upper {
-  @include flex-between;
+  @include flex-between; // Default desktop: logo left, nav right
   margin-bottom: 40px;
+  position: relative; // Retain for potential future use or if any element uses absolute positioning on smaller screens
 
-  @media (max-width: $tablet) {
-    flex-direction: column;
-    align-items: flex-start;
+  @media (max-width: 1240px) { // Tablet and below
+    flex-direction: column; // Column for logo and nav sections
+    align-items: center; // Center items within the column
     gap: 30px;
+    margin-bottom: 20px;
   }
 }
 
@@ -32,13 +47,18 @@
   font-family: $font-primary;
   font-size: 32px;
   font-weight: 700;
+
+  img {
+    width: 65px;
+    height: 65px;
+  }
 }
 
 .nav {
   display: flex;
   gap: 40px;
 
-  @media (max-width: $tablet) {
+  @media (max-width: 1240px) { // Tablet and below
     flex-direction: column;
     gap: 20px;
   }
@@ -53,6 +73,25 @@
     &:hover {
       opacity: 0.7;
     }
+
+    @media (min-width: 1241px) { // Desktop+
+      font-size: 17.83px;
+      color: #B9B9B9;
+      &:hover {
+        color: $white;
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 1240px) { // Tablet and below
+      font-size: 17.83px; // Keep same font size as desktop for these links
+      color: #B9B9B9; // Keep same color
+      text-transform: uppercase; // Apply uppercase to tablet as well, as per earlier mobile instruction
+      text-align: center; // Center text for tablet
+      &:hover {
+        color: $white;
+      }
+    }
   }
 }
 
@@ -60,13 +99,25 @@
   width: 100%;
   height: 1px;
   background-color: rgba(255, 255, 255, 0.2);
-  margin-bottom: 30px;
+  margin-top: -15px;
+  margin-bottom: 45px(!important);
+  
+
+
+  @media (min-width: 1241px) { // Desktop+
+    margin-bottom: 15px;
+  }
+
+  @media (max-width: 1240px) { // Tablet and below
+    margin-bottom: 15px;
+    margin-top: 30px;
+  }
 }
 
 .lower {
   @include flex-between;
 
-  @media (max-width: $tablet) {
+  @media (max-width: 1240px) { // Tablet and below
     flex-direction: column;
     gap: 20px;
     text-align: center;
@@ -77,6 +128,25 @@
   font-family: $font-secondary;
   font-size: 14px;
   color: rgba(255, 255, 255, 0.7);
+
+  @media (min-width: 1241px) { // Desktop+
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  @media (max-width: 1240px) { // Tablet and below
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7); // Back to original tablet color
+    text-align: center; // Centered for tablet
+  }
+}
+
+.copyrightFull {
+  display: none; // Always hidden
+}
+
+.copyrightShort {
+  display: block; // Always shown
 }
 
 .socials {
@@ -85,8 +155,27 @@
 }
 
 .socialIcon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.1);
+  @media (min-width: 1241px) { // Desktop+
+    img {
+      width: 24px;
+      height: 24px;
+      transition: filter $transition-base;
+    }
+
+    &:hover img {
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  @media (max-width: 1240px) { // Tablet and below
+    img {
+      width: 24px;
+      height: 24px;
+      transition: filter $transition-base;
+    }
+
+    &:hover img {
+      filter: brightness(0) invert(1);
+    }
+  }
 }
