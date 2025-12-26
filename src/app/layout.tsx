@@ -7,6 +7,9 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'NFT Marketplace - DiveSea',
   description: 'Discover, Create and Sell NFTs On Our NFT Marketplace With Over Thousands Of NFTs',
+  icons: {
+    icon: '/images/Logo.svg',
+  },
 }
 
 export default function RootLayout({

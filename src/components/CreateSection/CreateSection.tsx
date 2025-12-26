@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useState, useEffect } from 'react';
-import Image from 'next/image';
+import NextImage from 'next/image';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 import styles from './CreateSection.module.scss';
 
@@ -40,7 +40,7 @@ const CreateSection = () => {
         </div>
 
         <div className={styles.imageBlock}>
-          <Image
+          <NextImage
             src={currentImageSrc}
             alt="Create NFT"
             width={369} // Default desktop width, will be overridden by CSS

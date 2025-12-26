@@ -73,6 +73,7 @@
     width: 1396px;
     height: 543px;
     align-items: flex-start; // Align top edges
+    margin: 0 auto; // Center the container
   }
   
   .leftContainer {
@@ -168,6 +169,7 @@
     width: 955px; // User-specified width
     height: 390px;
     align-items: flex-start;
+    margin: 0 auto; // Center the container
   }
   .leftContainer {
     flex-shrink: 0;
@@ -195,24 +197,24 @@
   .imageWrapper { position: absolute; }
   .image1 {
     width: 280px; height: 280px;
-    left: -10px;  // Calculated from x=507, mainContainer left ~67, leftContainer width 450
-    top: 5px;     // Calculated from y=157, mainContainer top 152
+    left: -10px;
+    top: 5px;
     img { border-radius: 18px; }
   }
   .image2 {
     width: 230px; height: 230px;
-    left: 297px;  // Calculated from x=814
-    top: 133px;   // Calculated from y=285
+    left: 297px;
+    top: 133px;
   }
   .arrow {
     width: 91.59px; height: 88.34px;
-    left: 284px;  // Calculated from x=800.72
-    top: 34px;    // Calculated from y=185.65
+    left: 284px;
+    top: 34px;
   }
   .image4 {
     width: 123.32px; height: 284.23px;
-    left: 422px;  // Calculated from x=938.68
-    top: -9px;    // Calculated from y=143
+    left: 422px;
+    top: -9px;
   }
 }
 

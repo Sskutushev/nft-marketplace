@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import NextImage from 'next/image';
 import styles from './Footer.module.scss';
 
 const Footer = () => {
@@ -8,7 +8,7 @@ const Footer = () => {
         <div className={styles.container}>
           <div className={styles.upper}>
             <div className={styles.logo}>
-              <Image src="/images/Wave.svg" alt="DiveSea Logo" width={65} height={65} />
+              <NextImage src="/images/Wave.svg" alt="DiveSea Logo" width={65} height={65} />
               <span>DiveSea</span>
             </div>
 
@@ -28,16 +28,16 @@ const Footer = () => {
 
             <div className={styles.socials}>
               <a href="#" className={styles.socialIcon}>
-                <Image src="/images/Frame 16.svg" alt="Instagram" width={24} height={24} />
+                <NextImage src="/images/Frame 16.svg" alt="Instagram" width={24} height={24} />
               </a>
               <a href="#" className={styles.socialIcon}>
-                <Image src="/images/Frame 17.svg" alt="LinkedIn" width={24} height={24} />
+                <NextImage src="/images/Frame 17.svg" alt="LinkedIn" width={24} height={24} />
               </a>
               <a href="#" className={styles.socialIcon}>
-                <Image src="/images/Frame 18.svg" alt="Facebook" width={24} height={24} />
+                <NextImage src="/images/Frame 18.svg" alt="Facebook" width={24} height={24} />
               </a>
               <a href="#" className={styles.socialIcon}>
-                <Image src="/images/Frame 19.svg" alt="Twitter" width={24} height={24} />
+                <NextImage src="/images/Frame 19.svg" alt="Twitter" width={24} height={24} />
               </a>
             </div>
           </div>
@@ -48,21 +48,21 @@ const Footer = () => {
         <div className={styles.mobileContainer}>
           <div className={styles.mobileUpper}>
             <div className={styles.mobileLogoBlock}>
-              <Image src="/images/Wave.svg" alt="DiveSea Logo" width={46} height={46} />
+              <NextImage src="/images/Wave.svg" alt="DiveSea Logo" width={46} height={46} />
               <span>DiveSea</span>
             </div>
             <div className={styles.mobileSocials}>
               <a href="#" className={styles.mobileSocialIcon}>
-                <Image src="/images/Frame 16.svg" alt="Instagram" width={17} height={17} />
+                <NextImage src="/images/Frame 16.svg" alt="Instagram" width={17} height={17} />
               </a>
               <a href="#" className={styles.mobileSocialIcon}>
-                <Image src="/images/Frame 17.svg" alt="LinkedIn" width={17} height={17} />
+                <NextImage src="/images/Frame 17.svg" alt="LinkedIn" width={17} height={17} />
               </a>
               <a href="#" className={styles.mobileSocialIcon}>
-                <Image src="/images/Frame 18.svg" alt="Facebook" width={17} height={17} />
+                <NextImage src="/images/Frame 18.svg" alt="Facebook" width={17} height={17} />
               </a>
               <a href="#" className={styles.mobileSocialIcon}>
-                <Image src="/images/Frame 19.svg" alt="Twitter" width={17} height={17} />
+                <NextImage src="/images/Frame 19.svg" alt="Twitter" width={17} height={17} />
               </a>
             </div>
           </div>

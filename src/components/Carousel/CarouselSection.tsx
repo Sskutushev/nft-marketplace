@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { fetchNFTsData } from '@/store/slices/nftSlice';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import NextImage from 'next/image';
 import NFTCard from './NFTCard';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 import styles from './CarouselSection.module.scss';
@@ -23,8 +24,8 @@ const CarouselSection = () => {
   }, [dispatch]);
 
   return (
-    <section 
-      ref={sectionRef} 
+    <section
+      ref={sectionRef}
       className={`${styles.carousel} ${isVisible ? styles.visible : ''}`}
     >
       <div className={styles.background}></div>
@@ -56,15 +57,21 @@ const CarouselSection = () => {
               spaceBetween: 16,
             },
             375: {
-              slidesPerView: 1.8,
+              slidesPerView: 1.5,
               centeredSlides: true,
-              spaceBetween: 16,
+              spaceBetween: -30,
             },
             425: {
-              slidesPerView: 2.5,
+              slidesPerView: 1.8,
               centeredSlides: true,
-              spaceBetween: 16,
+              spaceBetween: -30,
             },
+            575: {
+              slidesPerView: 2.5,
+              spaceBetween: -16,
+              centeredSlides: true,
+            },
+
 
             768: {
               slidesPerView: 4,
@@ -73,6 +80,11 @@ const CarouselSection = () => {
             },
             1024: {
               slidesPerView: 5,
+              spaceBetween: 20,
+              centeredSlides: true,
+            },
+            1240: {
+              slidesPerView: 4.5,
               spaceBetween: 16,
               centeredSlides: true,
             },
@@ -103,11 +115,11 @@ const CarouselSection = () => {
         <div className={styles.newNavigation}>
           <div className={styles.newNavigationInner}>
             <button className="swiper-button-prev-custom" aria-label="Previous slide">
-              <Image src="/images/icons/Line.svg" alt="Previous" width={24} height={24} />
+              <NextImage src="/images/icons/Line.svg" alt="Previous" width={24} height={24} />
             </button>
             <div className={styles.newDivider}></div>
             <button className="swiper-button-next-custom" aria-label="Next slide">
-              <Image src="/images/icons/Line2.svg" alt="Next" width={24} height={24} />
+              <NextImage src="/images/icons/Line2.svg" alt="Next" width={24} height={24} />
             </button>
           </div>
         </div>

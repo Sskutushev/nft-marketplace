@@ -4,7 +4,7 @@
 .carousel {
   position: relative;
   padding: 100px 0;
-  overflow: visible; // Изменено с hidden на visible
+  overflow: hidden; // Changed back to hidden to prevent page scroll
   opacity: 1;
   transform: translateY(50px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
@@ -35,19 +35,19 @@
 
 .title {
   font-family: $font-primary;
-  font-size: 46px; // Изменено с 48px на 46px
+  font-size: 46px;
   font-weight: 700;
-  color: #C5C5C5; // Изменено с $gray-title на #C5C5C5
+  color: #C5C5C5;
   text-align: center;
   margin-bottom: 60px;
 
   @media (max-width: $tablet) {
-    font-size: 34px; // Пропорционально изменено с 36px на 34px
+    font-size: 34px;
     margin-bottom: 40px;
   }
 
   @media (max-width: $mobile) {
-    font-size: 26px; // Пропорционально изменено с 28px на 26px
+    font-size: 26px;
     margin-bottom: 30px;
   }
 }
@@ -71,11 +71,11 @@
   }
 
   @media (max-width: $mobile) {
-    padding: 0 30px;
+    padding: 0; // Remove horizontal padding
   }
 
   @media (max-width: 320px) {
-    padding: 0 15px;
+    padding: 0; // Remove horizontal padding
   }
 }
 

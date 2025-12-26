@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import Image from 'next/image';
+import NextImage from 'next/image';
 import { gsap } from 'gsap';
 import styles from './HeroSection.module.scss';
 
@@ -80,16 +80,16 @@ const HeroSection = () => {
         {/* Right Container */}
         <div className={styles.rightContainer}>
           <div className={`${styles.imageWrapper} ${styles.image1}`}>
-            <Image src="/images/Rectangle 3.svg" alt="NFT 1" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
+            <NextImage src="/images/Rectangle 3.svg" alt="NFT 1" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
           </div>
           <div className={`${styles.imageWrapper} ${styles.image2}`}>
-            <Image src="/images/Rectangle 3 (1).svg" alt="NFT 2" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
+            <NextImage src="/images/Rectangle 3 (1).svg" alt="NFT 2" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
           </div>
           <div className={`${styles.imageWrapper} ${styles.arrow}`}>
-            <Image src="/images/Arrow 01.svg" alt="Arrow" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: 'contain' }} />
+            <NextImage src="/images/Arrow 01.svg" alt="Arrow" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: 'contain' }} />
           </div>
           <div className={`${styles.imageWrapper} ${styles.image4}`}>
-            <Image src="/images/Frame 26.svg" alt="NFT 4" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: 'contain' }} />
+            <NextImage src="/images/Frame 26.svg" alt="NFT 4" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: 'contain' }} />
           </div>
         </div>
       </div>

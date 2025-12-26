@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
+import NextImage from 'next/image';
 import styles from './Header.module.scss';
 import BurgerMenu from './BurgerMenu';
 
@@ -72,9 +72,9 @@ const Header = () => {
               aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             >
               {isMobileMenuOpen ? (
-                <Image src="/images/menu.svg" alt="Close menu" width={24} height={24} />
+                <NextImage src="/images/menu.svg" alt="Close menu" width={24} height={24} />
               ) : (
-                <Image src="/images/Frame 21.svg" alt="Open menu" width={40} height={40} />
+                <NextImage src="/images/Frame 21.svg" alt="Open menu" width={40} height={40} />
               )}
             </button>
           </div>
