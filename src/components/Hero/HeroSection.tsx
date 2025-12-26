@@ -116,6 +116,37 @@ const HeroSection = () => {
               </div>
             </div>
           </div>
+          {/* Duplicated right container for mobile */}
+          <div className={`${styles.rightContainer} ${styles.mobileImageContainer}`}>
+            <NextImage
+              src="/images/nft-cards/Group 427320379.svg"
+              alt="NFT 1"
+              width={391}
+              height={419}
+              className={`${styles.heroImage} ${styles.mobileHeroImage1}`}
+            />
+            <NextImage
+              src="/images/Group 427320373.svg"
+              alt="NFT 2"
+              width={321}
+              height={343}
+              className={`${styles.heroImage} ${styles.mobileHeroImage2}`}
+            />
+            <NextImage
+              src="/images/Arrow 01.svg"
+              alt="Arrow"
+              width={129}
+              height={124}
+              className={`${styles.heroImage} ${styles.mobileHeroImage3}`}
+            />
+            <NextImage
+              src="/images/Frame 26.svg"
+              alt="Frame"
+              width={173}
+              height={400}
+              className={`${styles.heroImage} ${styles.mobileHeroImage4}`}
+            />
+          </div>
         </div>
       </div>
     </section>

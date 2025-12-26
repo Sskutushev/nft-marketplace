@@ -47,15 +47,9 @@
     height: 543px;
     overflow: visible;
   }
-  @media (min-width: 769px) and (max-width: 1240px) {
-    width: 890px;
-    height: 390px;
-    overflow: visible;
-  }
 }
-
 .mobileContainer {
-  @media (max-width: 768px) {
+  @media (max-width: 900px) { /* Changed from 768px to 900px */
     width: 315px;
     height: 663px;
     overflow: visible;
@@ -81,7 +75,11 @@
   @media (min-width: 769px) and (max-width: 1240px) {
     width: 555px;
     height: 390px;
-    margin-left: 35px; /* Changed from 90px to 35px */
+    margin-left: 35px;
+  }
+
+  @media (max-width: 900px) { /* Hide original rightContainer on mobile */
+    display: none;
   }
 }
 
@@ -91,6 +89,7 @@
   transition: all $transition-base;
 }
 
+/* Original hero images */
 .heroImage1 {
   z-index: 2;
   @media (min-width: 1241px) {
@@ -351,6 +350,50 @@
 
   .statsContainer {
     display: none;
+  }
+
+  .mobileImageContainer { /* New class for the duplicated right container */
+    position: relative;
+    width: 100%; /* Adjust as needed */
+    height: 300px; /* Placeholder height */
+    margin-top: 40px; /* Space between left content and images */
+
+    @media (max-width: 900px) { /* Make it visible on mobile */
+      display: block;
+    }
+  }
+
+  .mobileHeroImage1 {
+    z-index: 2;
+    width: 285px; /* Placeholder */
+    height: 300px; /* Placeholder */
+    top: 8px; /* Placeholder */
+    left: -45px; /* Placeholder */
+  }
+
+  .mobileHeroImage2 {
+    z-index: 2;
+    width: 200px; /* Placeholder */
+    height: 215px; /* Placeholder */
+    top: 120px; /* Placeholder */
+    left: 185px; /* Placeholder */
+  }
+
+  .mobileHeroImage3 {
+    z-index: 3;
+    width: 80px; /* Placeholder */
+    height: 75px; /* Placeholder */
+    top: 65px; /* Placeholder */
+    left: 205px; /* Placeholder */
+    transform: rotate(0deg);
+  }
+
+  .mobileHeroImage4 {
+    z-index: 1;
+    width: 100px; /* Placeholder */
+    height: 230px; /* Placeholder */
+    top: 35px; /* Placeholder */
+    left: 295px; /* Placeholder */
   }
 }
 
