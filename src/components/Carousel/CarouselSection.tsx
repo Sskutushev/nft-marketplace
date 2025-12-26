@@ -53,31 +53,31 @@ const CarouselSection = () => {
             320: { // Mobile adaptation for 320px
               slidesPerView: 'auto',
               centeredSlides: true,
-              spaceBetween: 15, // Updated to 32px
+              spaceBetween: 16, // Updated to 16px
             },
             375: { // Mobile adaptation for 375px
               slidesPerView: 'auto',
               centeredSlides: true,
-              spaceBetween: 15, // Updated to 32px
+              spaceBetween: 16, // Updated to 16px
             },
             768: { // Tablet adaptation (2.5 slides visible)
               slidesPerView: 2.5,
-              spaceBetween: 15, // Updated to 32px
+              spaceBetween: 16, // Updated to 16px
               centeredSlides: true,
             },
             1024: { // Tablet adaptation (3.5 slides visible)
               slidesPerView: 3.5,
-              spaceBetween: 15,
+              spaceBetween: 16, // Updated to 16px
               centeredSlides: true,
             },
             1440: { // Desktop adaptation (3.5 slides visible)
               slidesPerView: 3.5,
-              spaceBetween: 15,
+              spaceBetween: 20, // Updated to 20px
               centeredSlides: true,
             },
             1920: { // Large Desktop adaptation (5.5 slides visible)
               slidesPerView: 5.5,
-              spaceBetween: 15,
+              spaceBetween: 20, // Updated to 20px
               centeredSlides: true,
             },
           }}
