@@ -5,63 +5,35 @@
   background-color: $white;
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: -38px 12px 60px 0px rgba(199, 199, 199, 0.6); // Updated drop shadow
+  box-shadow: -38px 12px 60px 0px rgba(199, 199, 199, 0.6);
   transition: transform $transition-base;
-  width: 281px; // Desktop width
-  height: 395px; // Desktop height
-  flex-shrink: 0; // Prevent shrinking in flex containers
+  width: 281px;
+  height: 395px;
+  flex-shrink: 0;
 
   &:hover {
     transform: translateY(-8px);
   }
 
-  // Tablet styles (up to 1240px)
   @media (max-width: 1240px) {
-    width: 200px; // Smaller width for tablet
-    height: 282px; // Smaller height for tablet
-    border-radius: 18px; // Adjusted border-radius
-    box-shadow: -20px 6px 30px 0px rgba(199, 199, 199, 0.6); // Adjusted shadow
-  }
-
-  // Mobile styles (up to 767px)
-  @media (max-width: 767px) {
-    width: 240px; // Mobile width
-    height: 338px; // Mobile height
-    border-radius: 16px; // Adjusted border-radius
-    box-shadow: -15px 5px 20px 0px rgba(199, 199, 199, 0.6); // Adjusted shadow
-  }
-  
-  // Mobile styles (up to 375px)
-  @media (max-width: 375px) {
-    width: 281px; // Revert to full size for main card on 375px view
-    height: 395px;
+    width: 200px;
+    height: 282px;
+    border-radius: 18px;
+    box-shadow: -20px 6px 30px 0px rgba(199, 199, 199, 0.6);
   }
 }
 
 .imageWrapper {
   position: relative;
-  width: 253px; // Desktop width
-  height: 253px; // Desktop height
+  width: 253px;
+  height: 253px;
   overflow: hidden;
-  margin: 0 auto; // Center the image container
-  padding-top: 0; // Reset padding-top
+  margin: 0 auto;
+  padding-top: 0;
 
-  // Tablet styles (up to 1240px)
   @media (max-width: 1240px) {
-    width: 180px; // Smaller width for tablet
-    height: 180px; // Smaller height for tablet
-  }
-
-  // Mobile styles (up to 767px)
-  @media (max-width: 767px) {
-    width: 200px; // Mobile width
-    height: 200px; // Mobile height
-  }
-  
-  // Mobile styles (up to 375px)
-  @media (max-width: 375px) {
-    width: 253px; // Revert to full size for main card on 375px view
-    height: 253px;
+    width: 180px;
+    height: 180px;
   }
 }
 
@@ -72,26 +44,25 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 24px; // Rounded image inside card
+  border-radius: 24px;
 }
 
 .timer {
-  @include flex-center; // Center text inside timer
+  @include flex-center;
   position: absolute;
   bottom: 16px;
-  right: 16px; // Position on the right side
-  background-color: rgba(28, 29, 32, 0.35); // fill 1C1D20 35%
-  border: 1px solid rgba(28, 29, 32, 0.08); // stroke 1C1D20 8% inside 1.18
+  right: 16px;
+  background-color: rgba(28, 29, 32, 0.35);
+  border: 1px solid rgba(28, 29, 32, 0.08);
   color: $white;
-  padding: 0px 8px; // Adjusted padding to fit text
-  border-radius: 10px; // Adjusted border-radius
+  padding: 0px 8px;
+  border-radius: 10px;
   font-family: $font-secondary;
   font-size: 14px;
-  width: 115px; // Fixed width
-  height: 34px; // Fixed height
+  width: 115px;
+  height: 34px;
   backdrop-filter: blur(4px);
 
-  // Tablet styles
   @media (max-width: 1240px) {
     width: 90px;
     height: 28px;
@@ -100,26 +71,6 @@
     right: 12px;
     border-radius: 8px;
   }
-
-  // Mobile styles
-  @media (max-width: 767px) {
-    width: 100px;
-    height: 30px;
-    font-size: 13px;
-    bottom: 14px;
-    right: 14px;
-    border-radius: 9px;
-  }
-  
-  // Mobile styles (up to 375px)
-  @media (max-width: 375px) {
-    width: 115px; // Revert to full size for main card on 375px view
-    height: 34px;
-    font-size: 14px;
-    bottom: 16px;
-    right: 16px;
-    border-radius: 10px;
-  }
 }
 
 .content {
@@ -127,31 +78,18 @@
 }
 
 .title {
-  font-family: $font-primary; // Poppins
+  font-family: $font-primary;
   font-size: 22px;
   font-weight: 600;
-  color: #141416; // 141416
+  color: #141416;
   margin-bottom: 16px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 
-  // Tablet styles
   @media (max-width: 1240px) {
     font-size: 16px;
     margin-bottom: 10px;
-  }
-
-  // Mobile styles
-  @media (max-width: 767px) {
-    font-size: 18px;
-    margin-bottom: 12px;
-  }
-  
-  // Mobile styles (up to 375px)
-  @media (max-width: 375px) {
-    font-size: 22px;
-    margin-bottom: 16px;
   }
 }
 
@@ -169,23 +107,12 @@
 }
 
 .label {
-  font-family: $font-secondary; // Poppins
-  font-size: 14px; // Poppins regular 14
-  color: #94A3B8; // 94A3B8
+  font-family: $font-secondary;
+  font-size: 14px;
+  color: #94A3B8;
 
-  // Tablet styles
   @media (max-width: 1240px) {
     font-size: 10px;
-  }
-
-  // Mobile styles
-  @media (max-width: 767px) {
-    font-size: 11px;
-  }
-  
-  // Mobile styles (up to 375px)
-  @media (max-width: 375px) {
-    font-size: 14px;
   }
 }
 
@@ -198,19 +125,8 @@
   font-weight: 600;
   color: $black-secondary;
 
-  // Tablet styles
   @media (max-width: 1240px) {
     font-size: 14px;
-  }
-
-  // Mobile styles
-  @media (max-width: 767px) {
-    font-size: 16px;
-  }
-  
-  // Mobile styles (up to 375px)
-  @media (max-width: 375px) {
-    font-size: 18px;
   }
 }
 
@@ -218,42 +134,25 @@
   @include button-reset;
   background-color: $black-secondary;
   color: $white;
-  font-family: $font-primary; // Poppins semibold 14.12
-  font-size: 14.12px; // Poppins semibold 14.12
+  font-family: $font-primary;
+  font-size: 14.12px;
   font-weight: 600;
-  padding: 0; // Reset padding
-  width: 120px; // Desktop width
-  height: 50px; // Desktop height
-  border-radius: 12px; // Desktop border-radius
+  padding: 0;
+  width: 120px;
+  height: 50px;
+  border-radius: 12px;
   transition: all $transition-base;
-  flex-shrink: 0; // Prevent button from shrinking
+  flex-shrink: 0;
 
   &:hover {
     background-color: $black-hover;
     transform: scale(1.05);
   }
 
-  // Tablet styles
   @media (max-width: 1240px) {
     width: 90px;
     height: 38px;
     font-size: 11px;
     border-radius: 9px;
-  }
-
-  // Mobile styles
-  @media (max-width: 767px) {
-    width: 100px;
-    height: 42px;
-    font-size: 12px;
-    border-radius: 10px;
-  }
-  
-  // Mobile styles (up to 375px)
-  @media (max-width: 375px) {
-    width: 120px; // Revert to full size for main card on 375px view
-    height: 50px;
-    font-size: 14.12px;
-    border-radius: 12px;
   }
 }

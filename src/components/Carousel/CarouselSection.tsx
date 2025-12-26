@@ -53,16 +53,16 @@ const CarouselSection = () => {
             320: { // Mobile adaptation for 320px
               slidesPerView: 'auto',
               centeredSlides: true,
-              spaceBetween: 15,
+              spaceBetween: 32, // Updated to 32px
             },
             375: { // Mobile adaptation for 375px
               slidesPerView: 'auto',
               centeredSlides: true,
-              spaceBetween: 15,
+              spaceBetween: 32, // Updated to 32px
             },
             768: { // Tablet adaptation (2.5 slides visible)
               slidesPerView: 2.5,
-              spaceBetween: 24,
+              spaceBetween: 32, // Updated to 32px
               centeredSlides: true,
             },
             1024: { // Tablet adaptation (3.5 slides visible)
