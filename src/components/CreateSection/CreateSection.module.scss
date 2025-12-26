@@ -127,9 +127,9 @@
 
 
 // ===================================
-// TABLET STYLES (769px - 1240px)
+// TABLET STYLES (886px - 1240px)
 // ===================================
-@media (min-width: 769px) and (max-width: 1240px) {
+@media (min-width: 886px) and (max-width: 1240px) {
   .createSection {
     min-height: 333px; // (100px padding + 233px container height)
     padding-top: 100px; // Approx. from hero section
@@ -151,8 +151,8 @@
   .exploreButton, .sellButton { font-size: 16px; width: 150px; height: 50px; }
   
   .imageBlock {
-    width: 250px; // Approx
-    height: 170px; // Approx
+    width: 263.57px; // Approx
+    height: 186.75px; // Approx
     position: absolute;
     right: 30px;
     top: -15px;
@@ -161,39 +161,50 @@
 
 
 // ===================================
-// MOBILE STYLES (up to 768px)
+// MOBILE STYLES (up to 885px)
 // ===================================
-@media (max-width: 768px) {
+@media (max-width: 885px) {
   .createSection {
-    min-height: 401px; // (80px padding + 321px container height)
-    padding-top: 80px; // Approx. from hero section
+    min-height: 535px; // Let height be determined by content
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
   .createContainer {
-    width: 315px;
-    height: 211px;
+    width: 375px; // Target fixed width
+    max-width: 100%; // Ensure it doesn't overflow on very small screens
+    height: 211px; // Let height be determined by content
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 30px 20px;
     text-align: center;
+    top: -80px; // Reset top positioning
+    border-radius: 20px; // Adjust border-radius for mobile
+    gap: 20px; // Spacing between blocks
   }
   .leftBlock {
     width: 100%;
     gap: 10px;
     align-items: center;
   }
-  .title { margin-top: 120px; font-size: 24px; }
+  .title { margin-top: -35px; font-size: 24px; }
   .subtitle { font-size: 10px; }
-  .buttonGroup { margin-top: 12px; flex-direction: row; gap: 10px;}
+  .buttonGroup { margin-top: 20px; flex-direction: row; gap: 15px;}
   .exploreButton, .sellButton { font-size: 10.58px; width: 91px; height: 34px; }
 
-  // Mobile image moved outside
+  // Mobile image position and size
   .imageBlock {
-    width: 251px;
-    height: 130px;
-    top: -15%; // Position relative to createSection's bottom
-    left: 50%;
-    transform: translateX(-55%);
-    z-index: 1;
+    width: 263px; // Adjust image size for 375px container
+    height: 137px; // Maintain aspect ratio
+    position: absolute; // Remove absolute positioning
+    margin-top: 300px; // Adjust margin as needed
+    left: auto;
+    top: auto;
+    transform: none;
+    z-index: auto;
+  }
+  .createImage {
+    width: 100%;
+    height: auto;
   }
 }

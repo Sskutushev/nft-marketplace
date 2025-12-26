@@ -46,6 +46,11 @@
     padding: 0 30px;
     border-bottom: 1px solid #201F1F;
   }
+
+  // below 375px (smaller mobile)
+  @media (max-width: 375px) {
+    padding: 0 0px; // Remove horizontal padding for smaller screens, container will handle it
+  }
 }
 
 .container {
@@ -67,9 +72,15 @@
 
   // Mobile (up to 768px)
   @media (max-width: 768px) {
-    width: 100%;
-    min-width: 315px;
+    width: 100%; // Take full width
     justify-content: space-between;
+  }
+
+  // Smaller mobile (up to 375px)
+  @media (max-width: 375px) {
+    max-width: 315px; // Fixed width container
+    margin: 0 auto; // Center the container
+    min-width: unset; // Remove previous min-width override
   }
 }
 

@@ -69,6 +69,11 @@
   gap: 24px;
   margin-top: 40px;
 
+  @media (max-width: $mobile) { // Smallest screens
+    gap: 16px; // Reduce gap on mobile
+    margin-top: 30px; // Adjust margin
+  }
+
   button {
     @include button-reset;
     width: 48px;
@@ -82,6 +87,11 @@
       background-color: $black-secondary;
       color: $white;
     }
+
+    @media (max-width: $mobile) {
+      width: 40px; // Smaller buttons on mobile
+      height: 40px;
+    }
   }
 }
 
@@ -89,6 +99,10 @@
   width: 1px;
   height: 24px;
   background-color: $gray-element;
+
+  @media (max-width: $mobile) {
+    height: 20px; // Slightly smaller divider
+  }
 }
 
 .loader,

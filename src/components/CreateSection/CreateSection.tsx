@@ -25,7 +25,7 @@ const CreateSection = () => {
         {/* This image is part of the main container on desktop/tablet, but separates on mobile */}
         <div className={styles.imageBlock}>
           <Image
-            src="/images/Group 427320345.svg"
+            src="/images/Group 427320377.svg"
             alt="Create NFT"
             width={369}
             height={249}
