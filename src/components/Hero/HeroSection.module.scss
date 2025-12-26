@@ -65,6 +65,7 @@
 .rightContainer {
   position: relative;
   flex-shrink: 0;
+  overflow: visible; // Allow images to move outside container during animation
 
   @media (min-width: 1241px) {
     width: 780px;
@@ -87,6 +88,7 @@
   position: absolute;
   object-fit: contain;
   transition: all $transition-base;
+  z-index: 1; // Ensure images are above other content during animation
 }
 
 /* Original hero images */
@@ -357,6 +359,7 @@
     width: 100%; /* Adjust as needed */
     height: 300px; /* Placeholder height */
     margin-top: 40px; /* Space between left content and images */
+    overflow: visible; // Allow images to move outside container during animation
 
     @media (max-width: 900px) { /* Make it visible on mobile */
       display: block;
@@ -434,6 +437,7 @@
   position: absolute;
   object-fit: contain;
   transition: all $transition-base;
+  z-index: 1; // Ensure images are above other content during animation
 }
 
 .heroImage1 {

@@ -43,6 +43,33 @@
     color: #606060; /* Updated font color */
     text-decoration: none;
     text-transform: uppercase; /* Make text uppercase */
+    position: relative;
+    padding: 10px 15px; // Add padding for better interaction area
+    border-radius: 10px; // Border radius for the hover effect
+    z-index: 1; // Ensure text is above the hover effect
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background-color: transparent;
+      border-radius: 10px;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s, height 0.3s, background-color 0.3s;
+      z-index: -1; // Behind the text
+    }
+
+    &:hover {
+      color: $black-primary;
+      &::before {
+        width: 131px; // Base size for hover
+        height: 43px;
+        background-color: rgba(34, 34, 34, 0.1); // Light background on hover
+      }
+    }
   }
 }
 

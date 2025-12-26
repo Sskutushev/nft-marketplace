@@ -162,31 +162,63 @@
   position: relative;
   text-transform: uppercase;
   white-space: nowrap;
+  padding: 10px 15px; // Add padding for better interaction area
+  border-radius: 10px; // Border radius for the hover effect
+  z-index: 1; // Ensure text is above the hover effect
 
-  &::after {
+  &::before {
     content: '';
     position: absolute;
-    bottom: -5px;
-    left: 0;
+    top: 50%;
+    left: 50%;
     width: 0;
-    height: 2px;
-    background-color: $black-primary;
-    transition: width $transition-base;
+    height: 0;
+    background-color: transparent;
+    border-radius: 10px;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s, background-color 0.3s;
+    z-index: -1; // Behind the text
   }
 
   &:hover {
     color: $black-primary;
-    &::after {
-      width: 100%;
+  }
+
+  &:active {
+    &::before {
+      width: 131px; // Base size
+      height: 43px;
+      background-color: rgba(34, 34, 34, 0.1); // Light background on active
     }
   }
 
   @media (min-width: 1240px) {
     font-size: 18px;
+    &:active {
+      &::before {
+        width: 131px;
+        height: 43px;
+      }
+    }
   }
 
   @media (min-width: 901px) and (max-width: 1239px) {
     font-size: 14px;
+    &:active {
+      &::before {
+        width: 100px; // Adjust for smaller screens
+        height: 35px;
+      }
+    }
+  }
+
+  @media (max-width: 900px) {
+    &:active {
+      &::before {
+        width: 80px; // Adjust for mobile
+        height: 30px;
+      }
+    }
   }
 }
 

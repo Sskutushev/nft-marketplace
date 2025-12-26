@@ -3,14 +3,91 @@
 import { useEffect, useRef } from 'react';
 import NextImage from 'next/image';
 import { gsap } from 'gsap';
+import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 import styles from './HeroSection.module.scss';
 
 const HeroSection = () => {
   const mainRef = useRef(null);
+  const isVisible = useIntersectionObserver(mainRef, { threshold: 0.1 });
 
   useEffect(() => {
-    // Animation logic will be re-added later
-  }, []);
+    if (isVisible) {
+      // Create timeline for animations
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+      // Left container animations
+      tl.fromTo(`.${styles.headline}`,
+        { opacity: 0, y: 50 }, // from state
+        { opacity: 1, y: 0, duration: 0.8 } // to state
+      )
+      .fromTo(`.${styles.subheadline}`,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.6 },
+        "-=0.4"
+      )
+      .fromTo(`.${styles.buttonGroup}`,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.6 },
+        "-=0.4"
+      )
+      .fromTo(`.${styles.statsContainer}`,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.6 },
+        "-=0.4"
+      );
+
+      // Right container animations
+      tl.fromTo([`.${styles.heroImage1}`, `.${styles.heroImage2}`],
+        { x: 100, opacity: 0 }, // from state
+        { x: 0, opacity: 1, duration: 0.8, stagger: 0.1 }, // to state
+        "-=0.6"
+      )
+      .fromTo(`.${styles.heroImage3}`,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.6 },
+        "-=0.2"
+      )
+      .fromTo(`.${styles.heroImage4}`,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.6 },
+        "-=0.2"
+      );
+
+      // Mobile animations - using fromTo to ensure proper animation
+      const mobileTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+      mobileTl.fromTo(`.${styles.mobileHero} .${styles.headline}`,
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 0.8 },
+        "+=0.2"
+      )
+      .fromTo(`.${styles.mobileHero} .${styles.subheadline}`,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.6 },
+        "-=0.4"
+      )
+      .fromTo(`.${styles.mobileHero} .${styles.buttonGroup}`,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.6 },
+        "-=0.4"
+      )
+      .fromTo([`.${styles.mobileHeroImage1}`, `.${styles.mobileHeroImage2}`],
+        { x: 100, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.8, stagger: 0.1 },
+        "-=0.6"
+      )
+      .fromTo(`.${styles.mobileHeroImage3}`,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.6 },
+        "-=0.2"
+      )
+      .fromTo(`.${styles.mobileHeroImage4}`,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.6 },
+        "-=0.2"
+      );
+    }
+  }, [isVisible]);
 
   return (
     <section className={styles.heroSection} ref={mainRef}>
@@ -24,7 +101,7 @@ const HeroSection = () => {
               Create NFTs
             </h1>
             <p className={styles.subheadline}>
-              Discover, Create and Sell NFTs On Our NFT Marketplace 
+              Discover, Create and Sell NFTs On Our NFT Marketplace
               <br />
               With Over Thousands Of NFTs And Get a <strong>$20 bonus.</strong>
             </p>
@@ -79,7 +156,7 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Mobile Version */}
       <div className={styles.mobileHero}>
         <div className={styles.mobileContainer}>
@@ -93,7 +170,7 @@ const HeroSection = () => {
               Create NFTs
             </h1>
             <p className={styles.subheadline}>
-              Discover, Create and Sell NFTs On Our NFT Marketplace 
+              Discover, Create and Sell NFTs On Our NFT Marketplace
               <br />
               With Over Thousands Of NFTs And Get a <strong>$20 bonus.</strong>
             </p>

@@ -93,9 +93,14 @@ const CarouselSection = () => {
               spaceBetween: 20,
               centeredSlides: true,
             },
+            1680: {
+              slidesPerView: 6,
+              spaceBetween: 150,
+              centeredSlides: true,
+            },
             1920: {
-              slidesPerView: 6.5,
-              spaceBetween: 100,
+              slidesPerView: 7,
+              spaceBetween: 250,
               centeredSlides: true,
             },
           }}

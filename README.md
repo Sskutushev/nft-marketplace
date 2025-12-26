@@ -1,16 +1,13 @@
 # NFT Marketplace Landing Page
 
-Modern, fully responsive NFT marketplace landing page built with Next.js 14, Redux Toolkit, SCSS, and GSAP animations.
+A responsive NFT marketplace landing page built with Next.js 14, Redux Toolkit, SCSS, and GSAP animations.
 
-## Features
+## What's inside
 
-- Smooth GSAP animations
-- Fully responsive design (Desktop / Tablet / Mobile)
-- Pixel-perfect implementation
-- Infinite carousel with real API data
-- Live countdown timers for NFT cards
-- Interactive hover states
-- Optimized performance
+- GSAP animations for smooth transitions
+- Fully responsive (Desktop / Tablet / Mobile)
+- NFT carousel with live data
+- Hover effects on buttons and navigation
 - Docker support
 
 ## Tech Stack
@@ -21,132 +18,75 @@ Modern, fully responsive NFT marketplace landing page built with Next.js 14, Red
 - **Animations**: GSAP
 - **Carousel**: Swiper.js
 - **Language**: TypeScript
-- **API**: CoinGecko NFT API
 
-## Installation
+## How to run
 
-### Prerequisites
+### You need:
 - Node.js 18+
-- npm or yarn
+- npm
 
-### Local Development
-
-1. Clone repository:
-```bash
-git clone https://github.com/username/nft-marketplace.git
-cd nft-marketplace
-```
-
-2. Install dependencies:
+### Steps:
+1. Install dependencies:
 ```bash
 npm install
 ```
 
-3. Run development server:
+2. Run in development mode:
 ```bash
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000)
+3. Open [http://localhost:3000](http://localhost:3000)
 
-### Docker Deployment
-
-1. Build image:
+### With Docker:
 ```bash
+# Build image
 docker-compose build
-```
 
-2. Run container:
-```bash
+# Run container
 docker-compose up -d
 ```
-
-3. Access at [http://localhost:3000](http://localhost:3000)
 
 ## Project Structure
 ```
 nft-marketplace/
-├── public/              # Static assets
+├── public/              # Static files
 ├── src/
-│   ├── app/            # Next.js app directory
+│   ├── app/            # Next.js pages
 │   ├── components/     # React components
 │   ├── store/          # Redux store
-│   ├── services/       # API services
-│   ├── utils/          # Utility functions
+│   ├── services/       # API calls
+│   ├── utils/          # Helper functions
 │   ├── types/          # TypeScript types
 │   └── styles/         # Global styles
 ├── Dockerfile
-├── docker-compose.yml
-└── README.md
+└── docker-compose.yml
 ```
-## Design Specifications
-### Breakpoints
 
-- Desktop: 1440px (base)
-- Tablet: 1024px
-- Mobile: 375px
-- Large screens: 1920px+ (scaled)
+## Key Features
 
-### Color Palette
-
-- Primary Black: #141416
-- Hover Black: #222222
-- White: #FFFFFF
-- Background: #F8F8F8
-- Carousel BG: #F1F1F1
-
-### Typography
-
-- Poppins: Primary font (10px - 76px)
-- Inter: Navigation, footer (12px - 18px)
-- Outfit: CTA buttons (10px - 21px)
-- Public Sans: Statistics (36px)
-
-## Features Breakdown
 ### Header
-
-- Fixed positioning with scroll effects
-- Transparent to white background transition
-- Responsive burger menu for mobile
-- Smooth navigation transitions
+- Fixed position that changes on scroll
+- Mobile menu with smooth animations
 
 ### Hero Section
+- Text animations that appear in sequence
+- Images slide in from the right
+- Responsive buttons with hover effects
 
-- Staggered text animations (200-300ms delays)
-- Images slide in from right
-- Responsive typography scaling
-- Interactive CTA buttons
-
-### Carousel Section
-
-- Real-time data from CoinGecko API
-- Random image assignment
+### Carousel
+- Shows NFT cards with real API data
 - Live countdown timers
-- Generated bid prices
-- Infinite loop
-- Swipe/drag support
-- Responsive card scaling
+- Auto-rotating with swipe support
 
 ### Create Section
+- Call-to-action buttons with hover effects
+- Responsive layout
 
-- Call-to-action banner
-- Hover animations
-- Responsive button layout
-
-### Footer
-
-- Multi-column layout
-- Social media links
-- Responsive stacking
-
-## Performance Optimizations
-
-- Image optimization with Next.js Image component
-- Code splitting
-- Lazy loading
-- SCSS modules for scoped styling
-- Redux Toolkit for efficient state management
-- Memoized components where needed
+## Responsive breakpoints
+- Desktop: 1440px
+- Tablet: 1024px
+- Mobile: 375px
 
 ## License
-This project is licensed under the MIT License.
+MIT
