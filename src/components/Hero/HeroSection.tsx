@@ -47,6 +47,36 @@ const HeroSection = () => {
               </div>
             </div>
           </div>
+          <div className={styles.rightContainer}>
+            <NextImage
+              src="/images/nft-cards/Group 427320379.svg"
+              alt="NFT 1"
+              width={391}
+              height={419}
+              className={`${styles.heroImage} ${styles.heroImage1}`}
+            />
+            <NextImage
+              src="/images/Group 427320373.svg"
+              alt="NFT 2"
+              width={321}
+              height={343}
+              className={`${styles.heroImage} ${styles.heroImage2}`}
+            />
+            <NextImage
+              src="/images/Arrow 01.svg"
+              alt="Arrow"
+              width={129}
+              height={124}
+              className={`${styles.heroImage} ${styles.heroImage3}`}
+            />
+            <NextImage
+              src="/images/Frame 26.svg"
+              alt="Frame"
+              width={173}
+              height={400}
+              className={`${styles.heroImage} ${styles.heroImage4}`}
+            />
+          </div>
         </div>
       </div>
       
