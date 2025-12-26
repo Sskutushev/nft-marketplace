@@ -28,12 +28,13 @@
   width: 253px;
   height: 253px;
   overflow: hidden;
-  margin: 0 auto;
+  margin: 14px auto 0; // Set top margin equal to horizontal margin
   padding-top: 0;
 
   @media (max-width: 1240px) {
     width: 180px;
     height: 180px;
+    margin-top: 10px; // (200 - 180) / 2 = 10px
   }
 }
 
@@ -50,7 +51,7 @@
 .timer {
   @include flex-center;
   position: absolute;
-  bottom: 16px;
+  top: 16px; // Moved from bottom to top
   right: 16px;
   background-color: rgba(28, 29, 32, 0.35);
   border: 1px solid rgba(28, 29, 32, 0.08);
@@ -67,7 +68,7 @@
     width: 90px;
     height: 28px;
     font-size: 12px;
-    bottom: 12px;
+    top: 12px; // Moved from bottom to top
     right: 12px;
     border-radius: 8px;
   }
