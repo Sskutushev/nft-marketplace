@@ -5,12 +5,26 @@ import Image from 'next/image';
 import styles from './NFTCard.module.scss';
 import { NFTItem } from '@/types/nft.types';
 
+const nftImages = [
+  "/images/nft-cards/nft-1.png",
+  "/images/nft-cards/nft-2.png",
+  "/images/nft-cards/nft-3.png",
+  "/images/nft-cards/nft-4.png",
+  "/images/nft-cards/nft-5.png",
+];
+
 interface NFTCardProps {
   nft: NFTItem;
 }
 
 const NFTCard = ({ nft }: NFTCardProps) => {
   const [timeLeft, setTimeLeft] = useState('');
+  const [randomImageSrc, setRandomImageSrc] = useState('');
+
+  useEffect(() => {
+    const randomIndex = Math.floor(Math.random() * nftImages.length);
+    setRandomImageSrc(nftImages[randomIndex]);
+  }, []);
 
   useEffect(() => {
     const calculateTimeLeft = () => {
@@ -40,7 +54,9 @@ const NFTCard = ({ nft }: NFTCardProps) => {
   return (
     <div className={styles.card}>
       <div className={styles.imageWrapper}>
-        <Image src={nft.image} alt={nft.name} layout="fill" objectFit="cover" className={styles.image} />
+        {randomImageSrc && (
+          <Image src={randomImageSrc} alt={nft.name} layout="fill" objectFit="cover" className={styles.image} />
+        )}
         <div className={styles.timer}>{timeLeft}</div>
       </div>
 
@@ -51,11 +67,7 @@ const NFTCard = ({ nft }: NFTCardProps) => {
           <div className={styles.currentBid}>
             <span className={styles.label}>Current bid</span>
             <div className={styles.price}>
-              <svg width="22" height="22" className={styles.ethIcon} viewBox="0 0 22 22">
-                {/* Ethereum icon path - using placeholder for now */}
-                <path d="M11 2L2 9l9 5 9-5-9-7z" fill="#141416"/>
-                <path d="M11 2v14l9-5-9-7z" fill="#141416"/>
-              </svg>
+              <Image src="/images/nft-cards/mdi_ethereum.svg" alt="Ethereum icon" width={22} height={22} className={styles.ethIcon} />
               <span>{nft.currentBid}</span>
             </div>
           </div>

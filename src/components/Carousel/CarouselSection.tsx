@@ -38,9 +38,9 @@ const CarouselSection = () => {
       ) : items.length > 0 ? (
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
-          spaceBetween={40}
-          slidesPerView={1}
-          loop={items.length > 3}
+          spaceBetween={40} // Default spaceBetween
+          slidesPerView={1} // Default slidesPerView
+          loop={true} // Always loop if enough items
           autoplay={{
             delay: 3000,
             disableOnInteraction: false,
@@ -50,10 +50,36 @@ const CarouselSection = () => {
             prevEl: '.swiper-button-prev-custom',
           }}
           breakpoints={{
-            375: { slidesPerView: 1, spaceBetween: 20 },
-            768: { slidesPerView: 2, spaceBetween: 24 },
-            1024: { slidesPerView: 3, spaceBetween: 32 },
-            1440: { slidesPerView: 4, spaceBetween: 40 },
+            320: { // Mobile adaptation for 320px
+              slidesPerView: 'auto',
+              centeredSlides: true,
+              spaceBetween: 15,
+            },
+            375: { // Mobile adaptation for 375px
+              slidesPerView: 'auto',
+              centeredSlides: true,
+              spaceBetween: 15,
+            },
+            768: { // Tablet adaptation (2.5 slides visible)
+              slidesPerView: 2.5,
+              spaceBetween: 24,
+              centeredSlides: true,
+            },
+            1024: { // Tablet adaptation (3.5 slides visible)
+              slidesPerView: 3.5,
+              spaceBetween: 32,
+              centeredSlides: true,
+            },
+            1440: { // Desktop adaptation (3.5 slides visible)
+              slidesPerView: 3.5,
+              spaceBetween: 40,
+              centeredSlides: true,
+            },
+            1920: { // Large Desktop adaptation (5.5 slides visible)
+              slidesPerView: 5.5,
+              spaceBetween: 40,
+              centeredSlides: true,
+            },
           }}
           className={styles.swiperContainer}
         >

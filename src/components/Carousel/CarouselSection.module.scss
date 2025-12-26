@@ -66,6 +66,12 @@
   @media (max-width: 320px) {
     padding: 0 15px;
   }
+
+  @media (max-width: 767px) {
+    .swiper-slide {
+      width: 281px;
+    }
+  }
 }
 
 .navigation {
