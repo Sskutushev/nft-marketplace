@@ -54,7 +54,17 @@
 
 .swiperContainer {
   padding: 0 97px;
-  overflow: visible; // Allow overflow for shadows
+  overflow: visible !important; // Allow overflow for shadows
+  padding-top: 50px; // Add padding to prevent clipping on hover
+  padding-bottom: 50px; // Add padding to prevent clipping on hover
+
+  .swiper-wrapper {
+    overflow: visible !important;
+  }
+
+  .swiper-slide {
+    overflow: visible !important;
+  }
 
   @media (max-width: $tablet) {
     padding: 0 32px;
@@ -69,58 +79,38 @@
   }
 }
 
-.navigation {
+.newNavigation {
+  width: 166px;
+  height: 64px;
+  border-radius: 17.25px;
+  background-color: $white;
+  padding: 20px;
   @include flex-center;
-  gap: 24px;
-  margin-top: 40px;
+  margin: 40px auto 0;
+  box-shadow: 0px 43.12px 34.49px -25.87px rgba(15, 15, 15, 0.12); // Добавлена тень
 
-  @media (max-width: $mobile) {
-    gap: 16px;
-    margin-top: 30px;
-  }
-
-  @media (max-width: 320px) {
-    margin-top: 20px;
+  .newNavigationInner {
+    width: 110px;
+    height: 24px;
+    @include flex-between;
   }
 
   button {
     @include button-reset;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    border: 2px solid $black-secondary;
-    color: $black-secondary;
+    width: 24px;
+    height: 24px;
     transition: all $transition-base;
 
-    &:hover {
-      background-color: $black-secondary;
-      color: $white;
-    }
-
-    @media (max-width: $mobile) {
-      width: 40px;
-      height: 40px;
-    }
-
-    @media (max-width: 320px) {
-      width: 36px;
-      height: 36px;
+    &:active {
+      background-color: #f0f0f0; // Эффект нажатия
     }
   }
 }
 
-.divider {
-  width: 1px;
-  height: 24px;
-  background-color: $gray-element;
-
-  @media (max-width: $mobile) {
-    height: 20px;
-  }
-
-  @media (max-width: 320px) {
-    height: 18px;
-  }
+.newDivider {
+  width: 2px;
+  height: 100%;
+  background-color: #E6E8EC;
 }
 
 .loader,

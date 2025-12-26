@@ -100,18 +100,16 @@ const CarouselSection = () => {
       )}
 
       {items.length > 0 && (
-        <div className={styles.navigation}>
-          <button className="swiper-button-prev-custom" aria-label="Previous slide">
-            <svg width="24" height="24" viewBox="0 0 24 24">
-              <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" fill="none"/>
-            </svg>
-          </button>
-          <div className={styles.divider}></div>
-          <button className="swiper-button-next-custom" aria-label="Next slide">
-            <svg width="24" height="24" viewBox="0 0 24 24">
-              <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2" fill="none"/>
-            </svg>
-          </button>
+        <div className={styles.newNavigation}>
+          <div className={styles.newNavigationInner}>
+            <button className="swiper-button-prev-custom" aria-label="Previous slide">
+              <Image src="/images/icons/Line.svg" alt="Previous" width={24} height={24} />
+            </button>
+            <div className={styles.newDivider}></div>
+            <button className="swiper-button-next-custom" aria-label="Next slide">
+              <Image src="/images/icons/Line2.svg" alt="Next" width={24} height={24} />
+            </button>
+          </div>
         </div>
       )}
     </section>
