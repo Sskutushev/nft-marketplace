@@ -52,7 +52,7 @@
   height: 100%;
   transition: width $transition-base;
   margin: 0 auto;
-  z-index: 10; // Ensure it's above the header's background
+  z-index: 1001; // Ensure it's above the header's background
 
   @media (min-width: 1240px) {
     width: 1246px;
