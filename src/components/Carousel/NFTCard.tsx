@@ -6,11 +6,11 @@ import styles from './NFTCard.module.scss';
 import { NFTItem } from '@/types/nft.types';
 
 const nftImages = [
-  "/images/nft-cards/nft-1.png",
-  "/images/nft-cards/nft-2.png",
-  "/images/nft-cards/nft-3.png",
-  "/images/nft-cards/nft-4.png",
-  "/images/nft-cards/nft-5.png",
+  "/images/nft-cards/nft-card-1.svg",
+  "/images/nft-cards/nft-card-2.svg",
+  "/images/nft-cards/nft-card-3.svg",
+  "/images/nft-cards/nft-card-4.svg",
+  "/images/nft-cards/nft-card-5.svg",
 ];
 
 interface NFTCardProps {
