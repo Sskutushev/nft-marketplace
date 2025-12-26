@@ -10,6 +10,7 @@
   width: 281px;
   height: 395px;
   flex-shrink: 0;
+  margin: 50px; // Add margin to contain shadow
 
   &:hover {
     transform: translateY(-8px);
@@ -122,12 +123,16 @@
   align-items: center;
   gap: 6px;
   font-family: $font-primary;
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 16.47px; // Изменено с 18px на 16.47px
+  font-weight: 500; // Изменено с 600 на 500 (Medium)
   color: $black-secondary;
 
   @media (max-width: 1240px) {
-    font-size: 14px;
+    font-size: 12px; // Изменено с 14px на 12px
+  }
+
+  @media (max-width: 767px) {
+    font-size: 12px; // Установлено для мобильных
   }
 }
 

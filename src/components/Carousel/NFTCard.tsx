@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
+import NextImage from 'next/image';
 import styles from './NFTCard.module.scss';
 import { NFTItem } from '@/types/nft.types';
 
@@ -11,6 +11,9 @@ const nftImages = [
   "/images/nft-cards/nft-card-3.svg",
   "/images/nft-cards/nft-card-4.svg",
   "/images/nft-cards/nft-card-5.svg",
+  "/images/nft-cards/nft-card-1.svg", // Дополнительный элемент
+  "/images/nft-cards/nft-card-2.svg", // Дополнительный элемент
+  "/images/nft-cards/nft-card-3.svg", // Дополнительный элемент
 ];
 
 interface NFTCardProps {
@@ -55,7 +58,7 @@ const NFTCard = ({ nft }: NFTCardProps) => {
     <div className={styles.card}>
       <div className={styles.imageWrapper}>
         {randomImageSrc && (
-          <Image src={randomImageSrc} alt={nft.name} layout="fill" objectFit="cover" className={styles.image} />
+          <NextImage src={randomImageSrc} alt={nft.name} layout="fill" objectFit="cover" className={styles.image} />
         )}
         <div className={styles.timer}>{timeLeft}</div>
       </div>
@@ -67,7 +70,7 @@ const NFTCard = ({ nft }: NFTCardProps) => {
           <div className={styles.currentBid}>
             <span className={styles.label}>Current bid</span>
             <div className={styles.price}>
-              <Image src="/images/nft-cards/mdi_ethereum.svg" alt="Ethereum icon" width={22} height={22} className={styles.ethIcon} />
+              <NextImage src="/images/nft-cards/mdi_ethereum.svg" alt="Ethereum icon" width={22} height={22} className={styles.ethIcon} />
               <span>{nft.currentBid}</span>
             </div>
           </div>

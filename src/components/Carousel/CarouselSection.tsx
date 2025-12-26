@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { fetchNFTsData } from '@/store/slices/nftSlice';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import NextImage from 'next/image';
 import NFTCard from './NFTCard';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 import styles from './CarouselSection.module.scss';
@@ -23,8 +24,8 @@ const CarouselSection = () => {
   }, [dispatch]);
 
   return (
-    <section 
-      ref={sectionRef} 
+    <section
+      ref={sectionRef}
       className={`${styles.carousel} ${isVisible ? styles.visible : ''}`}
     >
       <div className={styles.background}></div>
@@ -50,34 +51,51 @@ const CarouselSection = () => {
             prevEl: '.swiper-button-prev-custom',
           }}
           breakpoints={{
-            320: { // Mobile adaptation for 320px
-              slidesPerView: 'auto',
+            320: {
+              slidesPerView: 1.8,
               centeredSlides: true,
-              spaceBetween: 15, // Updated to 32px
+              spaceBetween: 16,
             },
-            375: { // Mobile adaptation for 375px
-              slidesPerView: 'auto',
+            375: {
+              slidesPerView: 1.5,
               centeredSlides: true,
-              spaceBetween: 15, // Updated to 32px
+              spaceBetween: -30,
             },
-            768: { // Tablet adaptation (2.5 slides visible)
+            425: {
+              slidesPerView: 1.8,
+              centeredSlides: true,
+              spaceBetween: -30,
+            },
+            575: {
               slidesPerView: 2.5,
-              spaceBetween: 15, // Updated to 32px
+              spaceBetween: -16,
               centeredSlides: true,
             },
-            1024: { // Tablet adaptation (3.5 slides visible)
-              slidesPerView: 3.5,
-              spaceBetween: 15,
+
+
+            768: {
+              slidesPerView: 4,
+              spaceBetween: 16,
               centeredSlides: true,
             },
-            1440: { // Desktop adaptation (3.5 slides visible)
-              slidesPerView: 3.5,
-              spaceBetween: 15,
+            1024: {
+              slidesPerView: 5,
+              spaceBetween: 20,
               centeredSlides: true,
             },
-            1920: { // Large Desktop adaptation (5.5 slides visible)
-              slidesPerView: 5.5,
-              spaceBetween: 15,
+            1240: {
+              slidesPerView: 4.5,
+              spaceBetween: 16,
+              centeredSlides: true,
+            },
+            1440: {
+              slidesPerView: 4.5,
+              spaceBetween: 20,
+              centeredSlides: true,
+            },
+            1920: {
+              slidesPerView: 6.5,
+              spaceBetween: 100,
               centeredSlides: true,
             },
           }}
@@ -94,18 +112,16 @@ const CarouselSection = () => {
       )}
 
       {items.length > 0 && (
-        <div className={styles.navigation}>
-          <button className="swiper-button-prev-custom" aria-label="Previous slide">
-            <svg width="24" height="24" viewBox="0 0 24 24">
-              <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" fill="none"/>
-            </svg>
-          </button>
-          <div className={styles.divider}></div>
-          <button className="swiper-button-next-custom" aria-label="Next slide">
-            <svg width="24" height="24" viewBox="0 0 24 24">
-              <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2" fill="none"/>
-            </svg>
-          </button>
+        <div className={styles.newNavigation}>
+          <div className={styles.newNavigationInner}>
+            <button className="swiper-button-prev-custom" aria-label="Previous slide">
+              <NextImage src="/images/icons/Line.svg" alt="Previous" width={24} height={24} />
+            </button>
+            <div className={styles.newDivider}></div>
+            <button className="swiper-button-next-custom" aria-label="Next slide">
+              <NextImage src="/images/icons/Line2.svg" alt="Next" width={24} height={24} />
+            </button>
+          </div>
         </div>
       )}
     </section>

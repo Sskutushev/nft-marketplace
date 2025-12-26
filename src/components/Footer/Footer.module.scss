@@ -141,12 +141,9 @@
   }
 
   @media (max-width: 767px) {
-    // These styles will be superseded by .mobileFooter on screen sizes <= 885px
-    // But they will still apply from 768px to 885px, which is not what we want.
-    // So, this block should ideally be for min-width: 768px and max-width: 885px
-    // Or just removed, as the new mobileFooter takes over.
-    // For now, I will keep it as it's part of the desktopTabletFooter,
-    // which gets hidden at max-width: 885px.
+    max-width: 327px;
+    padding: 0;
+    margin: 0 auto;
   }
 }
 
@@ -156,6 +153,13 @@
   position: relative;
 
   @media (min-width: 768px) and (max-width: 1240px) {
+    margin-bottom: 30px;
+  }
+
+  @media (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     margin-bottom: 30px;
   }
 }
@@ -178,6 +182,11 @@
       height: 50px;
     }
     font-size: 28px;
+  }
+
+  @media (max-width: 767px) {
+    justify-content: flex-start;
+    width: 100%;
   }
 }
 
@@ -217,6 +226,26 @@
         color: $white;
       }
     }
+
+    @media (max-width: 767px) {
+      font-size: 14px;
+      color: #B9B9B9;
+      text-transform: uppercase;
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    margin-top: 0;
+    width: auto;
+    padding-left: 0;
+    margin-left: 0;
+    margin-bottom: 45px;
   }
 }
 
@@ -231,6 +260,11 @@
     margin-bottom: 10px;
     margin-top: 20px;
   }
+
+  @media (max-width: 767px) {
+    margin-top: 0;
+    margin-bottom: 27px;
+  }
 }
 
 .lower {
@@ -238,6 +272,12 @@
 
   @media (min-width: 768px) and (max-width: 1240px) {
     gap: 20px;
+  }
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
   }
 }
 
@@ -254,6 +294,14 @@
   @media (min-width: 768px) and (max-width: 1240px) {
     font-size: 12px;
     color: rgba(255, 255, 255, 0.7);
+  }
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+    color: #999999;
+    text-align: center;
+    width: 100%;
+    padding-left: 0;
   }
 }
 
@@ -276,6 +324,11 @@
 .socials {
   display: flex;
   gap: 16px;
+
+  @media (max-width: 767px) {
+    margin-left: auto;
+    gap: 10px;
+  }
 }
 
 .socialIcon {
@@ -295,6 +348,18 @@
     img {
       width: 20px;
       height: 20px;
+    }
+
+    &:hover img {
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  @media (max-width: 767px) {
+    img {
+      width: 17px;
+      height: 17px;
+      transition: filter $transition-base;
     }
 
     &:hover img {

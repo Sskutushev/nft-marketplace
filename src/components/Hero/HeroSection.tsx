@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import Image from 'next/image';
+import NextImage from 'next/image';
 import { gsap } from 'gsap';
 import styles from './HeroSection.module.scss';
 
@@ -43,53 +43,108 @@ const HeroSection = () => {
 
   return (
     <section className={styles.heroSection} ref={mainRef}>
-      <div className={styles.mainContainer}>
-        {/* Left Container */}
-        <div className={styles.leftContainer}>
-          <div className={styles.line}></div>
-          <span className={styles.mobileOnlyText}>OVER 1M CREATORS</span>
-          <h1 className={styles.headline}>
-            Discover And <br />
-            Create NFTs
-          </h1>
-          <p className={styles.subheadline}>
-            Discover, Create and Sell NFTs On Our NFT Marketplace 
-            <br />
-            With Over Thousands Of NFTs And Get a <strong>$20 bonus.</strong>
-          </p>
-          <div className={styles.buttonGroup}>
-            <button className={styles.exploreButton}>EXPLORE MORE</button>
-            <button className={styles.createButton}>CREATE NFT</button>
+      {/* Desktop/Tablet Version */}
+      <div className={styles.desktopTabletHero}>
+        <div className={styles.mainContainer}>
+          <div className={styles.leftContainer}>
+            <div className={styles.line}></div>
+            <span className={styles.mobileOnlyText}>OVER 1M CREATORS</span>
+            <h1 className={styles.headline}>
+              Discover And <br />
+              Create NFTs
+            </h1>
+            <p className={styles.subheadline}>
+              Discover, Create and Sell NFTs On Our NFT Marketplace 
+              <br />
+              With Over Thousands Of NFTs And Get a <strong>$20 bonus.</strong>
+            </p>
+            <div className={styles.buttonGroup}>
+              <button className={styles.exploreButton}>EXPLORE MORE</button>
+              <button className={styles.createButton}>CREATE NFT</button>
+            </div>
+            <div className={styles.statsContainer}>
+              <div className={styles.stat}>
+                <span className={styles.statValue}>430K+</span>
+                <span className={styles.statLabel}>Art Works</span>
+              </div>
+              <div className={styles.stat}>
+                <span className={styles.statValue}>159K+</span>
+                <span className={styles.statLabel}>Creators</span>
+              </div>
+              <div className={styles.stat}>
+                <span className={styles.statValue}>87K+</span>
+                <span className={styles.statLabel}>Collections</span>
+              </div>
+            </div>
           </div>
-          <div className={styles.statsContainer}>
-            <div className={styles.stat}>
-              <span className={styles.statValue}>430K+</span>
-              <span className={styles.statLabel}>Art Works</span>
+
+          <div className={styles.rightContainer}>
+            <div className={`${styles.imageWrapper} ${styles.image1}`}>
+              <NextImage src="/images/Rectangle 3.svg" alt="NFT 1" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
             </div>
-            <div className={styles.stat}>
-              <span className={styles.statValue}>159K+</span>
-              <span className={styles.statLabel}>Creators</span>
+            <div className={`${styles.imageWrapper} ${styles.image2}`}>
+              <NextImage src="/images/Rectangle 3 (1).svg" alt="NFT 2" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
             </div>
-            <div className={styles.stat}>
-              <span className={styles.statValue}>87K+</span>
-              <span className={styles.statLabel}>Collections</span>
+            <div className={`${styles.imageWrapper} ${styles.arrow}`}>
+              <NextImage src="/images/Arrow 01.svg" alt="Arrow" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: 'contain' }} />
+            </div>
+            <div className={`${styles.imageWrapper} ${styles.image4}`}>
+              <NextImage src="/images/Frame 26.svg" alt="NFT 4" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: 'contain' }} />
             </div>
           </div>
         </div>
+      </div>
+      
+      {/* Mobile Version */}
+      <div className={styles.mobileHero}>
+        {/* Structure for mobile version goes here */}
+        <div className={styles.mainContainer}>
+          <div className={styles.leftContainer}>
+            <div className={styles.line}></div>
+            <span className={styles.mobileOnlyText}>OVER 1M CREATORS</span>
+            <h1 className={styles.headline}>
+              Discover And <br />
+              Create NFTs
+            </h1>
+            <p className={styles.subheadline}>
+              Discover, Create and Sell NFTs On Our NFT Marketplace 
+              <br />
+              With Over Thousands Of NFTs And Get a <strong>$20 bonus.</strong>
+            </p>
+            <div className={styles.buttonGroup}>
+              <button className={styles.exploreButton}>EXPLORE MORE</button>
+              <button className={styles.createButton}>CREATE NFT</button>
+            </div>
+            <div className={styles.statsContainer}>
+              <div className={styles.stat}>
+                <span className={styles.statValue}>430K+</span>
+                <span className={styles.statLabel}>Art Works</span>
+              </div>
+              <div className={styles.stat}>
+                <span className={styles.statValue}>159K+</span>
+                <span className={styles.statLabel}>Creators</span>
+              </div>
+              <div className={styles.stat}>
+                <span className={styles.statValue}>87K+</span>
+                <span className={styles.statLabel}>Collections</span>
+              </div>
+            </div>
+          </div>
 
-        {/* Right Container */}
-        <div className={styles.rightContainer}>
-          <div className={`${styles.imageWrapper} ${styles.image1}`}>
-            <Image src="/images/Rectangle 3.svg" alt="NFT 1" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
-          </div>
-          <div className={`${styles.imageWrapper} ${styles.image2}`}>
-            <Image src="/images/Rectangle 3 (1).svg" alt="NFT 2" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
-          </div>
-          <div className={`${styles.imageWrapper} ${styles.arrow}`}>
-            <Image src="/images/Arrow 01.svg" alt="Arrow" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: 'contain' }} />
-          </div>
-          <div className={`${styles.imageWrapper} ${styles.image4}`}>
-            <Image src="/images/Frame 26.svg" alt="NFT 4" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: 'contain' }} />
+          <div className={styles.rightContainer}>
+            {/* You can have different image structure for mobile */}
+            <div className={`${styles.imageWrapper} ${styles.image1}`}>
+              <NextImage src="/images/Rectangle 3.svg" alt="NFT 1" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
+            </div>
+            <div className={`${styles.imageWrapper} ${styles.image2}`}>
+              <NextImage src="/images/Rectangle 3 (1).svg" alt="NFT 2" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
+            </div>
+            <div className={`${styles.imageWrapper} ${styles.arrow}`}>
+              <NextImage src="/images/Arrow 01.svg" alt="Arrow" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: 'contain' }} />
+            </div>
+            <div className={`${styles.imageWrapper} ${styles.image4}`}>
+              <NextImage src="/images/Frame 26.svg" alt="NFT 4" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: 'contain' }} />
+            </div>
           </div>
         </div>
       </div>
