@@ -52,6 +52,7 @@
   height: 100%;
   transition: width $transition-base;
   margin: 0 auto;
+  z-index: 10; // Ensure it's above the header's background
 
   @media (min-width: 1240px) {
     width: 1246px;
@@ -245,7 +246,9 @@
 
 .burgerButton {
   @include button-reset;
-  display: none;
+  z-index: 1002; // Ensure it's above other elements
+  pointer-events: auto;
+  cursor: pointer;
   
   img {
     transition: transform $transition-base;

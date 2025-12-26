@@ -1,7 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
+import { useEffect } from 'react';
 import NextImage from 'next/image';
 import styles from './BurgerMenu.module.scss';
 
@@ -11,36 +10,17 @@ interface BurgerMenuProps {
 }
 
 const BurgerMenu = ({ isOpen, onClose }: BurgerMenuProps) => {
-  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (menuRef.current) {
-      if (isOpen) {
-        gsap.to(menuRef.current, {
-          y: 0,
-          opacity: 1,
-          duration: 0.3,
-          ease: 'power2.out',
-          onComplete: () => {
-            document.body.style.overflow = 'hidden';
-          }
-        });
-      } else {
-        gsap.to(menuRef.current, {
-          y: '-100%',
-          opacity: 0,
-          duration: 0.3,
-          ease: 'power2.in',
-          onComplete: () => {
-            document.body.style.overflow = '';
-          }
-        });
-      }
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
     }
   }, [isOpen]);
 
   return (
-    <div ref={menuRef} className={styles.menu}>
+    <div className={`${styles.menu} ${isOpen ? styles.open : ''}`}>
       <div className={styles.topContent}>
         <nav className={styles.nav}>
           <a href="#discover" onClick={onClose}>Discover</a>

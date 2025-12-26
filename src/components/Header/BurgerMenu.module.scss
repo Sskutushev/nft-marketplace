@@ -12,9 +12,17 @@
   padding: 40px 30px;
   transform: translateY(-100%);
   opacity: 0;
+  visibility: hidden; // Hide and make non-interactive
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s;
+
+  &.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible; // Show and make interactive
+  }
 }
 
 .topContent {
