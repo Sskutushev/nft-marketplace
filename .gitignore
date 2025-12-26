@@ -11,6 +11,10 @@
 
 # Local Environment Variables
 .env*.local
+public/Ошибка!.jpg
+public/ошибка.jpg
+public/ошибка1.jpg
+public/проблемс.jpg
 
 # Logs
 npm-debug.log*
