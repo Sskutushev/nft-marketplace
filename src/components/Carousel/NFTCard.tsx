@@ -11,6 +11,9 @@ const nftImages = [
   "/images/nft-cards/nft-card-3.svg",
   "/images/nft-cards/nft-card-4.svg",
   "/images/nft-cards/nft-card-5.svg",
+  "/images/nft-cards/nft-card-1.svg", // Дополнительный элемент
+  "/images/nft-cards/nft-card-2.svg", // Дополнительный элемент
+  "/images/nft-cards/nft-card-3.svg", // Дополнительный элемент
 ];
 
 interface NFTCardProps {
