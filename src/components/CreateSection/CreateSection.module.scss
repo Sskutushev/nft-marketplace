@@ -187,17 +187,17 @@
     gap: 10px;
     align-items: center;
   }
-  .title { margin-top: -35px; font-size: 24px; }
+  .title { margin-top: -45px; font-size: 24px; }
   .subtitle { font-size: 10px; }
-  .buttonGroup { margin-top: 20px; flex-direction: row; gap: 15px;}
+  .buttonGroup { margin-top: 10px; flex-direction: row; gap: 15px;}
   .exploreButton, .sellButton { font-size: 10.58px; width: 91px; height: 34px; }
 
   // Mobile image position and size
   .imageBlock {
-    width: 263px; // Adjust image size for 375px container
+    width: 360px; // Adjust image size for 375px container
     height: 137px; // Maintain aspect ratio
     position: absolute; // Remove absolute positioning
-    margin-top: 300px; // Adjust margin as needed
+    margin-top: 200px; // Adjust margin as needed
     left: auto;
     top: auto;
     transform: none;
@@ -206,5 +206,33 @@
   .createImage {
     width: 100%;
     height: auto;
+  }
+}
+
+@media (max-width: 320px) { // Specific for 320px width
+  .createContainer {
+    padding: 30px 15px; // Reduced padding for 320px screens
+    height: auto; // Let height adjust if buttons stack
+  }
+  .title {
+    font-size: 22px; // Slightly smaller title on 320px
+  }
+  .subtitle {
+    font-size: 9px; // Slightly smaller subtitle
+  }
+  .buttonGroup {
+    flex-direction: column; // Stack buttons vertically
+    gap: 10px;
+  }
+  .exploreButton, .sellButton {
+    width: 100%; // Buttons take full width
+    max-width: 250px; // Limit max width
+    font-size: 10px; // Further reduce font size
+    height: 30px; // Smaller height
+  }
+  .imageBlock {
+    width: 100%; // Image block takes full width
+    max-width: 280px; // Limit max width
+    margin-top: 150px; // Adjust margin top
   }
 }

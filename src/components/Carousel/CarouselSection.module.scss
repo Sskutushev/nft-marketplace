@@ -62,6 +62,10 @@
   @media (max-width: $mobile) {
     padding: 0 30px;
   }
+
+  @media (max-width: 320px) { // Specific for 320px width
+    padding: 0 15px; // Reduce padding to give more space to the card
+  }
 }
 
 .navigation {
@@ -72,6 +76,10 @@
   @media (max-width: $mobile) { // Smallest screens
     gap: 16px; // Reduce gap on mobile
     margin-top: 30px; // Adjust margin
+  }
+
+  @media (max-width: 320px) { // Specific for 320px width
+    margin-top: 20px; // Adjust margin for very small screens
   }
 
   button {
@@ -92,6 +100,11 @@
       width: 40px; // Smaller buttons on mobile
       height: 40px;
     }
+
+    @media (max-width: 320px) { // Specific for 320px width
+      width: 36px; // Even smaller buttons
+      height: 36px;
+    }
   }
 }
 
@@ -102,6 +115,10 @@
 
   @media (max-width: $mobile) {
     height: 20px; // Slightly smaller divider
+  }
+
+  @media (max-width: 320px) {
+    height: 18px; // Even smaller divider
   }
 }
 

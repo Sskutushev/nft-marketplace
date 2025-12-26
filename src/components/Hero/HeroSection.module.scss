@@ -222,11 +222,13 @@
 @media (max-width: 768px) {
   .heroSection {
     padding-top: 100px; // Adjusted padding for mobile
+    padding-left: 0; // Remove left padding to prevent horizontal scroll
+    padding-right: 0; // Ensure no right padding either
   }
   .mainContainer {
     flex-direction: column;
     width: 100%;
-    padding: 0; 
+    padding: 0 15px; // Add internal padding to mainContainer
     gap: 60px; // Adjusted gap between left and right containers
     align-items: center; // Center content for mobile
   }

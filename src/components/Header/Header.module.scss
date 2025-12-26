@@ -29,20 +29,20 @@
 
   // 1025px to 1439px
   @media (min-width: 1025px) and (max-width: 1439px) {
-    height: 40px;
-    top: 32px;
+    height: 88px; // Changed from 40px
+    top: 25px; // Changed from 32px
   }
 
   // 768px to 1024px
   @media (min-width: 768px) and (max-width: 1024px) {
-    height: 40px;
-    top: 32px;
+    height: 88px; // Changed from 40px
+    top: 25px; // Changed from 32px
   }
 
   // below 768px (mobile)
   @media (max-width: 768px) {
-    height: 76px;
-    top: 25px; // Updated mobile top
+    height: 88px; // Changed from 76px
+    top: 25px; // Already 25px
     padding: 0 30px;
     border-bottom: 1px solid #201F1F;
   }
