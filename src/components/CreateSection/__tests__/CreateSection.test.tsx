@@ -4,7 +4,7 @@ import CreateSection from '../CreateSection';
 // Mock the useIntersectionObserver hook
 jest.mock('@/hooks/useIntersectionObserver', () => ({
   __esModule: true,
-  default: () => true, // Always return true for tests
+  default: () => true, 
 }));
 
 describe('CreateSection Component', () => {

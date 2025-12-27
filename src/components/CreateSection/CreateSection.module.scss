@@ -85,7 +85,7 @@
 }
 
 
-// DESKTOP STYLES (1241px and up)
+// Desktop
 @media (min-width: 1241px) {
   .createSection {
     min-height: 539px;
@@ -121,7 +121,7 @@
   }
 }
 
-// TABLET STYLES (886px - 1240px)
+// Tablet
 @media (min-width: 886px) and (max-width: 1240px) {
   .createSection {
     min-height: 333px;
@@ -152,7 +152,7 @@
   }
 }
 
-// MOBILE STYLES (up to 885px)
+// Mobile 
 @media (max-width: 885px) {
   .createSection {
     min-height: 535px;

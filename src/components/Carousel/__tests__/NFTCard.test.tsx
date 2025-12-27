@@ -7,7 +7,7 @@ const mockNFT: NFTItem = {
   name: 'Test NFT #1',
   image: '/test-image.png',
   currentBid: '2.5',
-  endTime: new Date(Date.now() + 86400000).toISOString(), // +1 день
+  endTime: new Date(Date.now() + 86400000).toISOString(), 
 };
 
 describe('NFTCard Component', () => {
@@ -29,7 +29,6 @@ describe('NFTCard Component', () => {
   it('shows countdown timer', () => {
     render(<NFTCard nft={mockNFT} />);
 
-    // Таймер должен отображаться в формате hh:mm:ss
     const timer = screen.getByText(/\d{2}h \d{2}m \d{2}s/);
     expect(timer).toBeInTheDocument();
 

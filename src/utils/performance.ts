@@ -21,7 +21,7 @@ class PerformanceMonitor {
 
     // Warn if slow (60 FPS = 16.67ms per frame)
     if (duration > 16.67) {
-      console.warn(`⚠️ Slow operation: ${name} took ${duration.toFixed(2)}ms`);
+      console.warn(`Slow operation: ${name} took ${duration.toFixed(2)}ms`);
     }
   }
 
@@ -42,7 +42,7 @@ class PerformanceMonitor {
       this.metrics.get(name)!.push(duration);
 
       if (duration > 100) {
-        console.warn(`⚠️ Slow async operation: ${name} took ${duration.toFixed(2)}ms`);
+        console.warn(`Slow async operation: ${name} took ${duration.toFixed(2)}ms`);
       }
 
       return result;
@@ -57,7 +57,7 @@ class PerformanceMonitor {
       this.metrics.get(name)!.push(duration);
 
       if (duration > 100) {
-        console.warn(`⚠️ Slow async operation: ${name} took ${duration.toFixed(2)}ms`);
+        console.warn(`Slow async operation: ${name} took ${duration.toFixed(2)}ms`);
       }
 
       throw error;
@@ -78,7 +78,7 @@ class PerformanceMonitor {
   report() {
     if (this.isProduction) return;
 
-    console.log('📊 Performance Report:');
+    console.log('Performance Report:');
     console.table(
       Array.from(this.metrics.entries()).map(([name, times]) => ({
         Operation: name,

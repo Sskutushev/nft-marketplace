@@ -61,14 +61,14 @@ const NFTCard = ({ nft }: NFTCardProps) => {
   useEffect(() => {
     const wsService = new NFTWebSocketService();
     let updateInterval: NodeJS.Timeout;
-    let isMounted = true; // Track if component is still mounted
+    let isMounted = true; 
 
     wsService.connect(
       (data) => {
         if (isMounted && data.ethereum) {
           setIsLive(true);
           // Simulate price fluctuation based on Ethereum price
-          const fluctuation = (Math.random() - 0.5) * 0.1; // ±10%
+          const fluctuation = (Math.random() - 0.5) * 0.1; 
           const newPrice = (parseFloat(nft.currentBid) * (1 + fluctuation)).toFixed(2);
           setLivePrice(newPrice);
         }

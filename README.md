@@ -229,7 +229,3 @@ Create production build:
 ```bash
 npm run build
 ```
-
-## License
-
-MIT

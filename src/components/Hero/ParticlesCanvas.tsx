@@ -39,7 +39,7 @@ const ParticlesCanvas = () => {
     resize();
     window.addEventListener('resize', resize);
 
-    // Create particles (fewer on mobile for performance)
+    // Create particles
     const isMobile = window.innerWidth < 768;
     const particleCount = isMobile ? 30 : 50;
 
@@ -60,26 +60,22 @@ const ParticlesCanvas = () => {
       const deltaTime = currentTime - lastTime;
       lastTime = currentTime;
 
-      // Clear canvas
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       particlesRef.current.forEach((particle) => {
-        // Update position
+       
         particle.x += particle.vx * (deltaTime / 16);
         particle.y += particle.vy * (deltaTime / 16);
 
-        // Bounce off edges
         if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
         if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
 
-        // Draw particle
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
         ctx.fillStyle = 'rgba(20, 20, 22, 0.15)';
         ctx.fill();
       });
 
-      // Draw connections (only on desktop for performance)
       if (!isMobile) {
         const maxDistance = 120;
         particlesRef.current.forEach((p1, i) => {

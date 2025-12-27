@@ -10,7 +10,7 @@
   justify-content: center;
   position: relative;
   z-index: 1;
-  isolation: isolate; // Create new stacking context for canvas
+  isolation: isolate; 
 
   @media (min-width: 1241px) {
     padding-top: 215px;

@@ -15,7 +15,6 @@ const HeroSection = () => {
   useEffect(() => {
     if (!isVisible) return;
 
-    // Check if mobile layout is active
     const isMobile = window.innerWidth <= 900;
 
     // Animation config
