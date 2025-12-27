@@ -3,16 +3,16 @@
 
 .menu {
   position: fixed;
-  top: 101px; /* Start below the new header height (76px height + 25px top) */
+  top: 101px; 
   left: 0;
   width: 100%;
-  height: calc(100vh - 101px); /* Adjust height to fill remaining space */
+  height: calc(100vh - 101px); 
   background-color: $white;
   z-index: $z-burger-menu;
   padding: 40px 30px;
   transform: translateY(-100%);
   opacity: 0;
-  visibility: hidden; // Hide and make non-interactive
+  visibility: hidden; 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -21,7 +21,7 @@
   &.open {
     transform: translateY(0);
     opacity: 1;
-    visibility: visible; // Show and make interactive
+    visibility: visible; 
   }
 }
 
@@ -34,19 +34,19 @@
   flex-direction: column;
   gap: 30px;
   margin-top: 100px;
-  align-items: flex-start; /* Align items to the left */
+  align-items: flex-start; 
 
   a {
     font-family: $font-secondary;
-    font-size: 40px; /* New font size */
-    font-weight: 500; /* Medium */
-    color: #606060; /* Updated font color */
+    font-size: 40px; 
+    font-weight: 500; 
+    color: #606060; 
     text-decoration: none;
-    text-transform: uppercase; /* Make text uppercase */
+    text-transform: uppercase;
     position: relative;
-    padding: 10px 15px; // Add padding for better interaction area
-    border-radius: 10px; // Border radius for the hover effect
-    z-index: 1; // Ensure text is above the hover effect
+    padding: 10px 15px; 
+    border-radius: 10px; 
+    z-index: 1; 
 
     &::before {
       content: '';
@@ -65,9 +65,9 @@
     &:hover {
       color: $black-primary;
       &::before {
-        width: 131px; // Base size for hover
+        width: 131px; 
         height: 43px;
-        background-color: rgba(34, 34, 34, 0.1); // Light background on hover
+        background-color: rgba(34, 34, 34, 0.1); 
       }
     }
   }
@@ -75,8 +75,8 @@
 
 .socials {
   display: flex;
-  gap: 40px; /* Space between icons */
-  margin-top: 30px; /* Space below nav links */
+  gap: 40px; 
+  margin-top: 30px; 
 }
 
 .ctaButton {
@@ -85,16 +85,16 @@
   color: $white;
   font-family: $font-secondary;
   width: 316px;
-  max-width: 100%; /* Ensure it doesn't overflow on very small screens */
+  max-width: 100%; 
   height: 60px;
   font-size: 20px;
-  font-weight: 600; /* SemiBold */
+  font-weight: 600; 
   border-radius: 15px;
   margin-top: 40px;
-  align-self: center; /* Center the button horizontally */
-  text-transform: uppercase; /* Make button text uppercase */
+  align-self: center; 
+  text-transform: uppercase; 
 
   @media (max-width: 375px) {
-    width: 100%; /* Make button full width on small screens */
+    width: 100%; 
   }
 }

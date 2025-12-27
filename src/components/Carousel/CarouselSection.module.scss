@@ -4,7 +4,7 @@
 .carousel {
   position: relative;
   padding: 100px 0;
-  overflow: hidden; // Changed back to hidden to prevent page scroll
+  overflow: hidden; 
   opacity: 1;
   transform: translateY(50px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
@@ -54,9 +54,9 @@
 
 .swiperContainer {
   padding: 0 97px;
-  overflow: visible !important; // Allow overflow for shadows
-  padding-top: 50px; // Add padding to prevent clipping on hover
-  padding-bottom: 50px; // Add padding to prevent clipping on hover
+  overflow: visible !important; 
+  padding-top: 50px; 
+  padding-bottom: 50px; 
 
   .swiper-wrapper {
     overflow: visible !important;
@@ -71,11 +71,11 @@
   }
 
   @media (max-width: $mobile) {
-    padding: 0; // Remove horizontal padding
+    padding: 0; 
   }
 
   @media (max-width: 320px) {
-    padding: 0; // Remove horizontal padding
+    padding: 0; 
   }
 }
 
@@ -87,7 +87,7 @@
   padding: 20px;
   @include flex-center;
   margin: 40px auto 0;
-  box-shadow: 0px 43.12px 34.49px -25.87px rgba(15, 15, 15, 0.12); // Добавлена тень
+  box-shadow: 0px 43.12px 34.49px -25.87px rgba(15, 15, 15, 0.12); 
 
   .newNavigationInner {
     width: 110px;
@@ -102,7 +102,7 @@
     transition: all $transition-base;
 
     &:active {
-      background-color: #f0f0f0; // Эффект нажатия
+      background-color: #f0f0f0; 
     }
   }
 }

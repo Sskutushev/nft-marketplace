@@ -11,10 +11,12 @@ const nftImages = [
   "/images/nft-cards/nft-card-3.svg",
   "/images/nft-cards/nft-card-4.svg",
   "/images/nft-cards/nft-card-5.svg",
-  "/images/nft-cards/nft-card-1.svg", // Дополнительный элемент
-  "/images/nft-cards/nft-card-2.svg", // Дополнительный элемент
-  "/images/nft-cards/nft-card-3.svg", // Дополнительный элемент
+  "/images/nft-cards/nft-card-1.svg", 
+  "/images/nft-cards/nft-card-2.svg", 
+  "/images/nft-cards/nft-card-3.svg", 
 ];
+
+import { NFTWebSocketService } from '@/services/websocket';
 
 interface NFTCardProps {
   nft: NFTItem;
@@ -23,6 +25,8 @@ interface NFTCardProps {
 const NFTCard = ({ nft }: NFTCardProps) => {
   const [timeLeft, setTimeLeft] = useState('');
   const [randomImageSrc, setRandomImageSrc] = useState('');
+  const [livePrice, setLivePrice] = useState<string>(nft.currentBid);
+  const [isLive, setIsLive] = useState(false);
 
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * nftImages.length);
@@ -54,6 +58,48 @@ const NFTCard = ({ nft }: NFTCardProps) => {
     return () => clearInterval(interval);
   }, [nft.endTime]);
 
+  // WebSocket для live updates
+  useEffect(() => {
+    const wsService = new NFTWebSocketService();
+    let updateInterval: NodeJS.Timeout;
+    let isMounted = true; // Track if component is still mounted
+
+    wsService.connect(
+      (data) => {
+        if (isMounted && data.ethereum) {
+          setIsLive(true);
+          // Simulate price fluctuation based on Ethereum price
+          const fluctuation = (Math.random() - 0.5) * 0.1; // ±10%
+          const newPrice = (parseFloat(nft.currentBid) * (1 + fluctuation)).toFixed(2);
+          setLivePrice(newPrice);
+        }
+      },
+      (error) => {
+        if (process.env.NODE_ENV === 'development') {
+          console.error('WebSocket error:', error);
+        }
+        if (isMounted) {
+          setIsLive(false);
+        }
+      }
+    );
+
+    // Fallback: update price every 5 seconds if WebSocket fails
+    updateInterval = setInterval(() => {
+      if (isMounted && !wsService.isConnected()) {
+        const fluctuation = (Math.random() - 0.5) * 0.05;
+        const newPrice = (parseFloat(nft.currentBid) * (1 + fluctuation)).toFixed(2);
+        setLivePrice(newPrice);
+      }
+    }, 5000);
+
+    return () => {
+      isMounted = false;
+      wsService.disconnect();
+      clearInterval(updateInterval);
+    };
+  }, [nft.currentBid]);
+
   return (
     <div className={styles.card}>
       <div className={styles.imageWrapper}>
@@ -71,7 +117,8 @@ const NFTCard = ({ nft }: NFTCardProps) => {
             <span className={styles.label}>Current bid</span>
             <div className={styles.price}>
               <NextImage src="/images/nft-cards/mdi_ethereum.svg" alt="Ethereum icon" width={22} height={22} className={styles.ethIcon} />
-              <span>{nft.currentBid}</span>
+              <span>{livePrice}</span>
+              {isLive && <span className={styles.liveBadge}>LIVE</span>}
             </div>
           </div>
           <button className={styles.bidButton}>

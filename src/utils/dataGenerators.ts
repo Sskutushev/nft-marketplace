@@ -16,5 +16,5 @@ export const generateRandomEndTime = (): string => {
     secondsToAdd * 1000
   );
 
-  return futureDate.toISOString(); // возвращаем строку вместо объекта Date
+  return futureDate.toISOString(); 
 };

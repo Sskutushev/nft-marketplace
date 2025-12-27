@@ -10,7 +10,7 @@
   width: 281px;
   height: 395px;
   flex-shrink: 0;
-  margin: 50px; // Add margin to contain shadow
+  margin: 50px;
 
   &:hover {
     transform: translateY(-8px);
@@ -29,13 +29,13 @@
   width: 253px;
   height: 253px;
   overflow: hidden;
-  margin: 14px auto 0; // Set top margin equal to horizontal margin
+  margin: 14px auto 0;
   padding-top: 0;
 
   @media (max-width: 1240px) {
     width: 180px;
     height: 180px;
-    margin-top: 10px; // (200 - 180) / 2 = 10px
+    margin-top: 10px;
   }
 }
 
@@ -52,7 +52,7 @@
 .timer {
   @include flex-center;
   position: absolute;
-  top: 16px; // Moved from bottom to top
+  top: 16px;
   right: 16px;
   background-color: rgba(28, 29, 32, 0.35);
   border: 1px solid rgba(28, 29, 32, 0.08);
@@ -69,7 +69,7 @@
     width: 90px;
     height: 28px;
     font-size: 12px;
-    top: 12px; // Moved from bottom to top
+    top: 12px;
     right: 12px;
     border-radius: 8px;
   }
@@ -123,16 +123,16 @@
   align-items: center;
   gap: 6px;
   font-family: $font-primary;
-  font-size: 16.47px; // Изменено с 18px на 16.47px
-  font-weight: 500; // Изменено с 600 на 500 (Medium)
+  font-size: 16.47px;
+  font-weight: 500;
   color: $black-secondary;
 
   @media (max-width: 1240px) {
-    font-size: 12px; // Изменено с 14px на 12px
+    font-size: 12px;
   }
 
   @media (max-width: 767px) {
-    font-size: 12px; // Установлено для мобильных
+    font-size: 12px;
   }
 }
 
@@ -160,5 +160,33 @@
     height: 38px;
     font-size: 11px;
     border-radius: 9px;
+  }
+}
+
+.liveBadge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 6px;
+  background-color: #22c55e;
+  color: $white;
+  font-size: 8px;
+  font-weight: 700;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  animation: pulse 2s ease-in-out infinite;
+
+  @media (max-width: 1240px) {
+    font-size: 7px;
+    padding: 1px 4px;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
   }
 }

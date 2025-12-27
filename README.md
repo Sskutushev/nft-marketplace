@@ -1,92 +1,116 @@
-# NFT Marketplace Landing Page
+# NFT Marketplace
 
-A responsive NFT marketplace landing page built with Next.js 14, Redux Toolkit, SCSS, and GSAP animations.
+A modern, responsive NFT marketplace frontend built with Next.js 14 and React.
 
-## What's inside
+## Features
 
+- Responsive design (Desktop, Tablet, Mobile)
 - GSAP animations for smooth transitions
-- Fully responsive (Desktop / Tablet / Mobile)
-- NFT carousel with live data
-- Hover effects on buttons and navigation
-- Docker support
+- Real-time NFT data from CoinGecko API
+- Interactive carousel with countdown timers
+- Redux state management
+- Docker deployment support
 
 ## Tech Stack
 
-- **Framework**: Next.js 14 (App Router)
-- **State Management**: Redux Toolkit
+- **Framework**: Next.js 14
+- **Language**: TypeScript
 - **Styling**: SCSS Modules
+- **State Management**: Redux Toolkit
 - **Animations**: GSAP
 - **Carousel**: Swiper.js
-- **Language**: TypeScript
+- **Testing**: Jest, React Testing Library, Playwright
 
-## How to run
+## Getting Started
 
-### You need:
+### Prerequisites
 - Node.js 18+
 - npm
 
-### Steps:
+### Installation
 1. Install dependencies:
 ```bash
 npm install
 ```
 
-2. Run in development mode:
+2. Run development server:
 ```bash
 npm run dev
 ```
 
-3. Open [http://localhost:3000](http://localhost:3000)
+3. Visit [http://localhost:3000](http://localhost:3000)
 
-### With Docker:
+## Docker Deployment
+
+Build and run with Docker:
 ```bash
-# Build image
+# Build the image
 docker-compose build
 
-# Run container
+# Start the container
 docker-compose up -d
 ```
 
 ## Project Structure
+
 ```
-nft-marketplace/
-├── public/              # Static files
-├── src/
-│   ├── app/            # Next.js pages
-│   ├── components/     # React components
-│   ├── store/          # Redux store
-│   ├── services/       # API calls
-│   ├── utils/          # Helper functions
-│   ├── types/          # TypeScript types
-│   └── styles/         # Global styles
-├── Dockerfile
-└── docker-compose.yml
+src/
+├── app/                # Next.js app router pages
+├── components/         # Reusable UI components
+│   ├── Carousel/       # NFT carousel
+│   ├── CreateSection/  # Create NFT section
+│   ├── Footer/         # Footer component
+│   ├── Header/         # Header with navigation
+│   └── Hero/           # Hero section with animations
+├── hooks/              # Custom React hooks
+├── services/           # API services
+├── store/              # Redux store
+├── styles/             # Global styles and mixins
+├── types/              # TypeScript type definitions
+└── utils/              # Utility functions
 ```
 
-## Key Features
+## Key Components
 
 ### Header
-- Fixed position that changes on scroll
-- Mobile menu with smooth animations
+- Responsive navigation
+- Mobile menu toggle
+- Scroll detection
 
 ### Hero Section
-- Text animations that appear in sequence
-- Images slide in from the right
-- Responsive buttons with hover effects
+- Animated text elements
+- Responsive image layout
+- Performance optimized animations
 
-### Carousel
-- Shows NFT cards with real API data
-- Live countdown timers
-- Auto-rotating with swipe support
+### NFT Carousel
+- Real-time data fetching
+- Countdown timers
+- Interactive navigation
 
-### Create Section
-- Call-to-action buttons with hover effects
-- Responsive layout
+## Testing
 
-## Responsive breakpoints
-- Desktop: 1440px
-- Tablet: 1024px
-- Mobile: 375px
+Run unit tests:
+```bash
+npm run test
+```
+
+Run tests in watch mode:
+```bash
+npm run test:watch
+```
+
+Run E2E tests:
+```bash
+npm run test:e2e
+```
+
+## Build
+
+Create production build:
+```bash
+npm run build
+```
 
 ## License
+
 MIT

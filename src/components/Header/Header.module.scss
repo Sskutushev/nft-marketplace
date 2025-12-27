@@ -52,7 +52,7 @@
   height: 100%;
   transition: width $transition-base;
   margin: 0 auto;
-  z-index: 1001; // Ensure it's above the header's background
+  z-index: 1001; 
 
   @media (min-width: 1240px) {
     width: 1246px;
@@ -162,9 +162,9 @@
   position: relative;
   text-transform: uppercase;
   white-space: nowrap;
-  padding: 10px 15px; // Add padding for better interaction area
-  border-radius: 10px; // Border radius for the hover effect
-  z-index: 1; // Ensure text is above the hover effect
+  padding: 10px 15px; 
+  border-radius: 10px; 
+  z-index: 1; 
 
   &::before {
     content: '';
@@ -177,7 +177,7 @@
     border-radius: 10px;
     transform: translate(-50%, -50%);
     transition: width 0.3s, height 0.3s, background-color 0.3s;
-    z-index: -1; // Behind the text
+    z-index: -1; 
   }
 
   &:hover {
@@ -188,7 +188,7 @@
     &::before {
       width: 131px; // Base size
       height: 43px;
-      background-color: rgba(34, 34, 34, 0.1); // Light background on active
+      background-color: rgba(34, 34, 34, 0.1); 
     }
   }
 
@@ -206,7 +206,7 @@
     font-size: 14px;
     &:active {
       &::before {
-        width: 100px; // Adjust for smaller screens
+        width: 100px; 
         height: 35px;
       }
     }
@@ -215,7 +215,7 @@
   @media (max-width: 900px) {
     &:active {
       &::before {
-        width: 80px; // Adjust for mobile
+        width: 80px; 
         height: 30px;
       }
     }
@@ -278,7 +278,7 @@
 
 .burgerButton {
   @include button-reset;
-  z-index: 1002; // Ensure it's above other elements
+  z-index: 1002;
   pointer-events: auto;
   cursor: pointer;
   

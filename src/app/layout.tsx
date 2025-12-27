@@ -7,8 +7,21 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'NFT Marketplace - DiveSea',
   description: 'Discover, Create and Sell NFTs On Our NFT Marketplace With Over Thousands Of NFTs',
+  manifest: '/manifest.json',
+  themeColor: '#141416',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'DiveSea',
+  },
   icons: {
     icon: '/images/Logo.svg',
+    apple: '/icons/icon-192x192.png',
   },
 }
 

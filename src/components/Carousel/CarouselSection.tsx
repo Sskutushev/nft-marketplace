@@ -39,9 +39,9 @@ const CarouselSection = () => {
       ) : items.length > 0 ? (
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
-          spaceBetween={40} // Default spaceBetween
-          slidesPerView={1} // Default slidesPerView
-          loop={true} // Always loop if enough items
+          spaceBetween={40} 
+          slidesPerView={1} 
+          loop={true} 
           autoplay={{
             delay: 3000,
             disableOnInteraction: false,

@@ -2,13 +2,28 @@ import axios from 'axios';
 
 const API_BASE_URL = 'https://api.coingecko.com/api/v3';
 
-export const fetchNFTs = async () => {
+interface CoinGeckoNFT {
+  id: string;
+  name: string;
+}
+
+export const fetchNFTs = async (): Promise<CoinGeckoNFT[]> => {
   try {
-    // Using a mock response since the actual NFT endpoint might not be available
-    // In a real implementation, this would call the actual API
-    console.log('Fetching NFTs from CoinGecko API...');
-    
-    // For now, returning mock data to simulate API response
+    const response = await axios.get(`${API_BASE_URL}/nfts/list`, {
+      params: {
+        per_page: 10,
+      },
+    });
+
+    // Map to required fields only
+    return response.data.map((nft: any) => ({
+      id: nft.id,
+      name: nft.name,
+    }));
+  } catch (error) {
+    console.error('Error fetching NFTs from CoinGecko:', error);
+
+    // Fallback to mock data on API error
     return [
       { id: '1', name: 'Cosmic Dreams #1' },
       { id: '2', name: 'Digital Art #2' },
@@ -21,8 +36,5 @@ export const fetchNFTs = async () => {
       { id: '9', name: 'Cyber Punks #9' },
       { id: '10', name: 'Metaverse Collectibles #10' }
     ];
-  } catch (error) {
-    console.error('Error fetching NFTs:', error);
-    throw new Error('Failed to fetch NFTs from API');
   }
 };

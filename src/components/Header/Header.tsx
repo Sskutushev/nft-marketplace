@@ -19,7 +19,6 @@ const Header = () => {
   }, []);
 
   const toggleMobileMenu = () => {
-    console.log('Toggling mobile menu. Current state:', isMobileMenuOpen);
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 

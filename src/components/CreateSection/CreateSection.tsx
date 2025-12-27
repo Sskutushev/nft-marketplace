@@ -8,7 +8,7 @@ import styles from './CreateSection.module.scss';
 const CreateSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.1 });
-  const [currentImageSrc, setCurrentImageSrc] = useState('/images/Group 427320345.svg'); // Default to desktop image
+  const [currentImageSrc, setCurrentImageSrc] = useState('/images/Group 427320345.svg'); 
 
   useEffect(() => {
     const handleResize = () => {
@@ -24,7 +24,7 @@ const CreateSection = () => {
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, []); // Empty dependency array means this effect runs once on mount
+  }, []); 
 
   return (
     <section ref={sectionRef} className={`${styles.createSection} ${isVisible ? styles.visible : ''}`}>
@@ -43,9 +43,9 @@ const CreateSection = () => {
           <NextImage
             src={currentImageSrc}
             alt="Create NFT"
-            width={369} // Default desktop width, will be overridden by CSS
-            height={249} // Default desktop height, will be overridden by CSS
-            sizes="(max-width: 885px) 100vw, 50vw" // Adjust sizes based on new breakpoint
+            width={369}
+            height={249} 
+            sizes="(max-width: 885px) 100vw, 50vw" 
             style={{ objectFit: 'contain' }}
             className={styles.createImage}
           />

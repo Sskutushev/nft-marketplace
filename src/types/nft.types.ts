@@ -3,7 +3,7 @@ export interface NFTItem {
   name: string;
   image: string;
   currentBid: string;
-  endTime: string; // используем строку вместо Date для сериализации
+  endTime: string; 
 }
 
 export interface NFTState {
