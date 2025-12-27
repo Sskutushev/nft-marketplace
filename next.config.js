@@ -6,6 +6,10 @@ const withPWA = require('next-pwa')({
   skipWaiting: true,
 });
 
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
+
 const nextConfig = {
   output: 'standalone',
   images: {
@@ -13,4 +17,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withPWA(nextConfig);
+module.exports = withBundleAnalyzer(withPWA(nextConfig));

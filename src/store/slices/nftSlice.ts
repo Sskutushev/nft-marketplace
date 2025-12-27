@@ -3,6 +3,7 @@ import { fetchNFTs } from '@/services/api';
 import { getRandomImage } from '@/utils/imageRandomizer';
 import { generateRandomBid, generateRandomEndTime } from '@/utils/dataGenerators';
 import { NFTState, NFTItem } from '@/types/nft.types';
+import { perfMonitor } from '@/utils/performance';
 
 export const fetchNFTsData = createAsyncThunk(
   'nft/fetchNFTs',

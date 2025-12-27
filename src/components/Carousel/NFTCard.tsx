@@ -4,6 +4,11 @@ import { useState, useEffect } from 'react';
 import NextImage from 'next/image';
 import styles from './NFTCard.module.scss';
 import { NFTItem } from '@/types/nft.types';
+import { NFTWebSocketService } from '@/services/websocket';
+
+interface NFTCardProps {
+  nft: NFTItem;
+}
 
 const nftImages = [
   "/images/nft-cards/nft-card-1.svg",
@@ -11,16 +16,10 @@ const nftImages = [
   "/images/nft-cards/nft-card-3.svg",
   "/images/nft-cards/nft-card-4.svg",
   "/images/nft-cards/nft-card-5.svg",
-  "/images/nft-cards/nft-card-1.svg", 
-  "/images/nft-cards/nft-card-2.svg", 
-  "/images/nft-cards/nft-card-3.svg", 
+  "/images/nft-cards/nft-card-1.svg",
+  "/images/nft-cards/nft-card-2.svg",
+  "/images/nft-cards/nft-card-3.svg",
 ];
-
-import { NFTWebSocketService } from '@/services/websocket';
-
-interface NFTCardProps {
-  nft: NFTItem;
-}
 
 const NFTCard = ({ nft }: NFTCardProps) => {
   const [timeLeft, setTimeLeft] = useState('');
@@ -130,4 +129,13 @@ const NFTCard = ({ nft }: NFTCardProps) => {
   );
 };
 
-export default NFTCard;
+import { memo } from 'react';
+
+export default memo(NFTCard, (prevProps, nextProps) => {
+  // Only rerender if NFT data changed
+  return (
+    prevProps.nft.id === nextProps.nft.id &&
+    prevProps.nft.currentBid === nextProps.nft.currentBid &&
+    prevProps.nft.endTime === nextProps.nft.endTime
+  );
+});

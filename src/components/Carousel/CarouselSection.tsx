@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useMemo } from 'react';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { fetchNFTsData } from '@/store/slices/nftSlice';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -18,6 +18,18 @@ const CarouselSection = () => {
   const { items, loading, error } = useAppSelector((state) => state.nft);
   const sectionRef = useRef<HTMLDivElement>(null);
   const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.1 });
+
+  // Memoize sorted items to avoid unnecessary resorting
+  const sortedItems = useMemo(() => {
+    if (!items || !Array.isArray(items)) {
+      return [];
+    }
+    return [...items].sort((a, b) => {
+      const bidA = parseFloat(a.currentBid);
+      const bidB = parseFloat(b.currentBid);
+      return bidB - bidA;
+    });
+  }, [items]);
 
   useEffect(() => {
     dispatch(fetchNFTsData());
@@ -106,7 +118,7 @@ const CarouselSection = () => {
           }}
           className={styles.swiperContainer}
         >
-          {items.map((nft) => (
+          {sortedItems.map((nft) => (
             <SwiperSlide key={nft.id}>
               <NFTCard nft={nft} />
             </SwiperSlide>
